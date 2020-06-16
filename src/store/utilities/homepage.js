@@ -16,8 +16,13 @@ const fetchTrending = (trendingAnime) => {
 export const fetchTrendingThunk = () => (dispatch) => {
   return axios
     .get("https://kitsu.io/api/edge/trending/anime")
-    .then((res) => res.data)
-    .then((trendingAnime) => dispatch(fetchTrending(trendingAnime)))
+    .then((res) => {
+      console.log("from thunk creator ", res.data);
+      return res.data;
+    })
+    .then((trendingAnime) => {
+      return dispatch(fetchTrending(trendingAnime));
+    })
     .catch((err) => console.log(err));
 };
 
@@ -25,6 +30,7 @@ export const fetchTrendingThunk = () => (dispatch) => {
 const reducer = (state = [], action) => {
   switch (action.type) {
     case FETCH_TRENDING:
+      console.log("from reducer", action.payload);
       return action.payload;
     default:
       return state;
