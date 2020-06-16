@@ -3,7 +3,7 @@ import RoutesContainer from "./components/routes/RoutesContainer";
 
 class App extends Component {
   render() {
-    return <div></div>;
+    return <RoutesContainer />;
   }
 }
 
