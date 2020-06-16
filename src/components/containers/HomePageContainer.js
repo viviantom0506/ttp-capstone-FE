@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import HomePageView from "../views/HomePageView";
-import { fetchTrendingThunk } from "../../thunks";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import HomePageView from '../views/HomePageView';
+import { fetchTrendingThunk } from '../../thunks';
+import PropTypes from 'prop-types';
 
 class HomePageContainer extends Component {
   componentDidMount() {
@@ -14,21 +14,21 @@ class HomePageContainer extends Component {
   }
 }
 
-const mapState = (state) => {
+const mapState = state => {
   return {
-    trendingAnime: state.trendingAnime,
+    trendingAnime: state.trendingAnime
   };
 };
 
-const mapDispatch = (dispatch) => {
+const mapDispatch = dispatch => {
   return {
-    fetchTrending: () => dispatch(fetchTrendingThunk()),
+    fetchTrending: () => dispatch(fetchTrendingThunk())
   };
 };
 
 HomePageContainer.propTypes = {
   trendingAnime: PropTypes.array.isRequired,
-  fetchTrending: PropTypes.func.isRequired,
+  fetchTrending: PropTypes.func.isRequired
 };
 
 export default connect(mapState, mapDispatch)(HomePageContainer);
