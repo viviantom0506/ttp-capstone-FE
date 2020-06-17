@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import AnimePageView from "../views/AnimePageView";
 import "./animepage.css";
 import { fetchAnimeListThunk, fetchSingleAnimeThunk } from "../../thunks";
+import Spinner from "react-bootstrap/Spinner";
+import Container from "react-bootstrap/Container";
 
 class AnimePageContainer extends Component {
   componentDidMount() {
@@ -11,6 +13,7 @@ class AnimePageContainer extends Component {
 
   handlePage = (id) => {
     this.props.fetchSingleAnime(id);
+    //<SingleAnimePageContainer id ={id} />
     console.log(id);
   };
 
@@ -21,7 +24,13 @@ class AnimePageContainer extends Component {
         animeList={this.props.animeList}
         handlePage={this.handlePage}
       />
-    ) : null;
+    ) : (
+      <Container>
+        <Spinner animation="border" role="status">
+          <span className="sr-only">Loading...</span>
+        </Spinner>
+      </Container>
+    );
     // < AnimePageView animeList={this.props.animeList, console.log("HELLO FROM ANIME pg cont",this.props.animeList)} />
   }
 }

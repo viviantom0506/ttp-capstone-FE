@@ -5,10 +5,12 @@ import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
 const NavBarView = () => {
   return (
     <Navbar bg="dark" variant="dark">
-      <Navbar.Brand href="#home">Anime Project</Navbar.Brand>
+      <Link to="/">
+        <Navbar.Brand>Anime Project</Navbar.Brand>
+      </Link>
       <Nav className="mr-auto">
-        <Nav.Link href="#home">Home</Nav.Link>
-        <Nav.Link href="#Profile">Profile</Nav.Link>
+        <Nav.Link href="/">Home</Nav.Link>
+        <Nav.Link href="/users/:id">Profile</Nav.Link>
       </Nav>
       <Form inline>
         <FormControl type="text" placeholder="Search" className="mr-sm-2" />
