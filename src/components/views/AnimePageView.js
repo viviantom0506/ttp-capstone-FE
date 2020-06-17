@@ -1,16 +1,17 @@
 import React from "react";
-
+import "./animestyle.css";
+import { Container, Row, Col } from "react-bootstrap";
 const AnimePageView = (props) => {
   return (
-    <div>
-      <h1>Naruto</h1>
-    
-    {props.animeList.map((anime,
-      )=> (
-        <h5>{anime.attributes.titles.en}</h5>
+    <div className="animeflex">
+      {props.animeList.map((anime) => (
+        <div>
+          <img src={anime.attributes.posterImage.medium} />
+          <h3>{anime.attributes.titles.en_jp}</h3>
+        </div>
       ))}
-      </div>
+    </div>
   );
-}
+};
 
 export default AnimePageView;

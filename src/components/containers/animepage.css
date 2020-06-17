@@ -1,0 +1,4 @@
+.singleAnime {
+  display: flex;
+  flex-direction: row;
+}
