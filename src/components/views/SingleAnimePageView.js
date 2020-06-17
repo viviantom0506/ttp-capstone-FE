@@ -9,7 +9,7 @@ const SingleAnimePageView = (props) => {
   const handleShow = () => setShow(true);
   const title = props.animeData.attributes.titles.en
     ? props.animeData.attributes.titles.en
-    : props.animeData.attributes.slug;
+    : props.animeData.attributes.titles.en_jp;
   const ytLink = `https://www.youtube.com/embed/${props.animeData.attributes.youtubeVideoId}`;
 
   return (

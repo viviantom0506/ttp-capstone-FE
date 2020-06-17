@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import HomePageView from "../views/HomePageView";
-import { fetchTrendingThunk } from "../../thunks";
+import { fetchTrendingThunk, fetchSingleAnimeThunk } from "../../thunks";
 import PropTypes from "prop-types";
 
 class HomePageContainer extends Component {
@@ -9,10 +9,18 @@ class HomePageContainer extends Component {
     this.props.fetchTrending();
   }
 
+  handlePage = (id) => {
+    this.props.fetchSingleAnime(id);
+    console.log(id);
+  };
+
   render() {
     console.log("from HP container ", this.props.trendingAnime);
     return this.props.trendingAnime ? (
-      <HomePageView trendingAnime={this.props.trendingAnime} />
+      <HomePageView
+        trendingAnime={this.props.trendingAnime}
+        handlePage={this.handlePage}
+      />
     ) : null;
   }
 }
@@ -27,6 +35,7 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
   return {
     fetchTrending: () => dispatch(fetchTrendingThunk()),
+    fetchSingleAnime: (id) => dispatch(fetchSingleAnimeThunk(id)),
   };
 };
 

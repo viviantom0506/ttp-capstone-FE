@@ -5,6 +5,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import NavBarContainer from "../containers/NavBarContainer";
 import AnimePageContainer from "../containers/AnimePageContainer";
 import { Carousel } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const HomePageView = (props) => {
   const [index, setIndex] = useState(0);
@@ -32,8 +33,18 @@ const HomePageView = (props) => {
               alt={anime.attributes.titles.en_jp}
               className="trendingAnime"
             ></img>
-            <Carousel.Caption>
-              <h5 className="legend">{anime.attributes.titles.en_jp}</h5>
+            <Carousel.Caption className=" text-light bg-dark">
+              <Link
+                to={`/${anime.id}`}
+                style={{ textDecoration: "none", color: "white" }}
+              >
+                <h5
+                  className="legend"
+                  onClick={() => props.handlePage(anime.id)}
+                >
+                  {anime.attributes.titles.en_jp}
+                </h5>
+              </Link>
             </Carousel.Caption>
           </Carousel.Item>
         ))}
