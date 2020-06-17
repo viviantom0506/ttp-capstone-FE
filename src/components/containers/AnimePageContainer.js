@@ -14,6 +14,7 @@ class AnimePageContainer extends Component {
     console.log(id);
   };
 
+
   render() {
     console.log("before return but im in render");
     return this.props.animeList ? (
