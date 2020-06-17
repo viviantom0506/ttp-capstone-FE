@@ -1,34 +1,48 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { useState } from "react";
 import "./HomePage.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from "react-responsive-carousel";
+//import { Carousel } from "react-responsive-carousel";
 import NavBarContainer from "../containers/NavBarContainer";
-import { Container } from "react-bootstrap";
+import AnimePageContainer from "../containers/AnimePageContainer";
+import { Carousel } from "react-bootstrap";
 
 const HomePageView = (props) => {
+  const [index, setIndex] = useState(0);
+
+  const handleSelect = (selectedIndex, e) => {
+    setIndex(selectedIndex);
+  };
+
   return (
     <div>
       {console.log("views ", typeof props.trendingAnime)}
+      <NavBarContainer />
       <div>
-        <NavBarContainer />
+        <h1>Trending Anime</h1>
       </div>
-      <Container fluid>
-        <Carousel>
-          {props.trendingAnime.map((
-            anime,
-            index //add key //<a scr = "/:id"><img></a>
-          ) => (
-            <div>
-              <img
-                src={anime.attributes.coverImage.large}
-                alt={anime.attributes.titles.en_jp}
-              ></img>
+
+      <Carousel activeIndex={index} onSelect={handleSelect}>
+        {props.trendingAnime.map((
+          anime,
+          index //add key //<a scr = "/:id"><img></a>
+        ) => (
+          <Carousel.Item>
+            <img
+              src={anime.attributes.coverImage.large}
+              alt={anime.attributes.titles.en_jp}
+              className="trendingAnime"
+            ></img>
+            <Carousel.Caption>
               <h5 className="legend">{anime.attributes.titles.en_jp}</h5>
-            </div>
-          ))}
-        </Carousel>
-      </Container>
+            </Carousel.Caption>
+          </Carousel.Item>
+        ))}
+      </Carousel>
+
+      <div className="popAnimeTag">
+        <h1>Most Popular Anime</h1>
+      </div>
+      <AnimePageContainer />
     </div>
   );
 };
