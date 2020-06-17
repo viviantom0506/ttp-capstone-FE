@@ -2,7 +2,7 @@ import axios from "axios";
 
 //Action Types
 const FETCH_TRENDING = "FETCH_TRENDING";
-const FETCH_ANIME = "FETCH_ANIME";
+
 //ACTION CREATORS;
 const fetchTrending = (trendingAnime) => {
   return {
@@ -11,12 +11,6 @@ const fetchTrending = (trendingAnime) => {
   };
 };
 
-const fetchAnime = (animeList) => {
-  return {
-    type: FETCH_ANIME,
-    payload: animeList,
-  };
-};
 
 //THUNK CREATOR
 
@@ -33,18 +27,7 @@ export const fetchTrendingThunk = () => (dispatch) => {
     .catch((err) => console.log(err));
 };
 
-export const fetchAnimeListThunk = () => (dispatch) => {
-  return axios 
-  .get("https://kitsu.io/api/edge/anime/")
-  .then((res) => {
-    console.log("Anime thunk ", res.data);
-    return res.data;
-  })
-  .then((animeList) => {
-    return dispatch(fetchAnime(animeList));
-  })
-  .catch((err) => console.log(err));
-}
+
 
 //REDUCER
 const reducer = (state = [], action) => {
@@ -52,9 +35,7 @@ const reducer = (state = [], action) => {
     case FETCH_TRENDING:
       console.log("from reducer", action.payload);
       return action.payload;
-    case FETCH_ANIME:
-      console.log("from reducer animeeee", action.payload);
-      return action.payload;
+    
     default:
       return state;
   }

@@ -1,10 +1,15 @@
 import React from "react";
 
-function AnimePageView(props) {
+const AnimePageView = (props) => {
   return (
     <div>
       <h1>Naruto</h1>
-    </div>
+    
+    {props.animeList.map((anime,
+      )=> (
+        <h5>{anime.attributes.titles.en}</h5>
+      ))}
+      </div>
   );
 }
 

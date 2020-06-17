@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 class HomePageContainer extends Component {
   componentDidMount() {
     this.props.fetchTrending();
-  }
+  } 
 
   render() {
     console.log("from HP container ", this.props.trendingAnime);
