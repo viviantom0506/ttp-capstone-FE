@@ -4,14 +4,16 @@ import {
   HomePageContainer,
   UsersPageContainer,
   SingleAnimePageContainer,
+  SignUpContainer,
   SearchResultsContainer,
-} from "../containers";
+ } from "../containers";
 
 const RoutesView = () => {
   return (
     <Switch>
       <Route exact path="/" component={HomePageContainer} />
       <Route exact path="/:id" component={SingleAnimePageContainer} />
+      <Route exact path="/api/signUp" component={SignUpContainer}/>
       <Route exact path="/users/:id" component={UsersPageContainer} />
       <Route exact paht="/results/:term" component={SearchResultsContainer} />
     </Switch>
