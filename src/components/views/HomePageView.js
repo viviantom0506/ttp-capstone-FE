@@ -13,7 +13,7 @@ const HomePageView = (props) => {
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
   };
-
+  //const randomMonth = months[Math.floor(Math.random() * months.length)]; RANDOM ELEMENT EXAMPLE
   return (
     <div>
       {console.log("views ", typeof props.trendingAnime)}
