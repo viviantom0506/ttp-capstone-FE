@@ -2,12 +2,15 @@ import React, { Component } from "react";
 import { searchAnimeThunk } from "../../thunks";
 import NavBarView from "../views/NavBarView.js";
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
+import SearchResultsContainer from "../containers/SearchResultsContainer";
 
 class NavBarContainer extends Component {
   constructor() {
     super();
     this.state = {
       keyword: "",
+      returnResults: false,
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -26,9 +29,15 @@ class NavBarContainer extends Component {
     event.preventDefault();
     console.log(this.state.keyword);
     this.props.searchAnime(this.state.keyword);
+    this.setState({ returnResults: true });
   };
 
   render() {
+    console.log("props.results => ", this.props.results);
+    if (this.state.returnResults === true) {
+      return <Redirect to={`/results/${this.state.keyword}`} />;
+    }
+
     return (
       <NavBarView
         handleChange={this.handleChange}
