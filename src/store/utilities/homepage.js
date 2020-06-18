@@ -11,6 +11,7 @@ const fetchTrending = trendingAnime => {
   };
 };
 
+
 //THUNK CREATOR
 
 export const fetchTrendingThunk = () => dispatch => {
@@ -26,12 +27,15 @@ export const fetchTrendingThunk = () => dispatch => {
     .catch((err) => console.log(err));
 };
 
+
+
 //REDUCER
 const reducer = (state = [], action) => {
   switch (action.type) {
     case FETCH_TRENDING:
       console.log("from reducer", action.payload);
       return action.payload;
+    
     default:
       return state;
   }

@@ -1,0 +1,12 @@
+.animeflex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  justify-content: space-around;
+}
+
+.animeflex div {
+  margin: 15px;
+  text-align: center;
+}
