@@ -5,7 +5,6 @@ const SignUpView = (props) => {
   return (
     <div class="center">
       <body class="text-center">
-      {console.log("hellpo")}
       <form class="form-signin" onSubmit={props.handleSubmit}>
       <h2 class="h3 mb-3 font-weight-normal">Sign Up</h2>
       <br/>
