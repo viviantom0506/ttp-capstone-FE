@@ -15,7 +15,7 @@ const addUser = (user) => {
 // Thunk Creators
 export const addUserThunk = (id) => (dispatch) => {
   return axios
-    .get(`/api/users/${id}`)
+    .post(`/api/users/${id}`)
     .then((res) => res.data)
     .then((user) => dispatch(addUser(user)))
     .catch((err) => console.log(err));
