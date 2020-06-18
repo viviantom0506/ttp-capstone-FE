@@ -3,51 +3,251 @@ import "./animestyle.css";
 import { Link } from "react-router-dom";
 
 const CategoriesView = (props) => {
-    return (
-        <div>
-        <h1>Categories</h1>
-        <p onClick={props.handleClick("comedy")}>Comedy</p>
-        <p onClick={props.handleClick("fantasy")}>Fantasy</p>
-        <p onClick={props.handleClick("romance")}>Romance</p>
-        <p onClick={props.handleClick("action")}>Action</p>
-        <p onClick={props.handleClick("school life")}>School Life</p>
-        <p onClick={props.handleClick("drama")}>Drama</p>
-        <p onClick={props.handleClick("adventure")}>Adventure</p>
-        <p onClick={props.handleClick("slice of life")}>Slice of Life</p>
-        <p onClick={props.handleClick("shoujo ai")}>Shoujo Ai</p>
-        <p onClick={props.handleClick("science fiction")}>Science Fiction</p>
-        <p onClick={props.handleClick("yaoi")}>Yaoi</p> 
-        <p onClick={props.handleClick("sport")}>Sport</p>
-        <p onClick={props.handleClick("japan")}>Japan</p>
-        <p onClick={props.handleClick("historical")}>Historical</p>
-        <p onClick={props.handleClick("earth")}>Earth</p> 
-        <p onClick={props.handleClick("thriller")}>Thriller</p>
-        <p onClick={props.handleClick("harem")}>Harem</p>
-        <p onClick={props.handleClick("mystery")}>Mystery</p>
-        <p onClick={props.handleClick("magic")}>Magic</p>
-        <p onClick={props.handleClick("present")}>Present</p>
-        <p onClick={props.handleClick("asia")}>Asia</p>
-        <p onClick={props.handleClick("kids")}>Kids</p>
-        <p onClick={props.handleClick("horror")}>Horror</p>
-        <p onClick={props.handleClick("music")}>Music</p>
-        <p onClick={props.handleClick("mecha")}>Mecha</p>
-        <p onClick={props.handleClick("psychological")}>Psychological</p>
-        <p onClick={props.handleClick("shounen ai")}>Shounen Ai</p>
-        <p onClick={props.handleClick("super power")}>Super Power</p>
-        <p onClick={props.handleClick("martial arts")}>Martial Arts</p>
-        <p onClick={props.handleClick("demon")}>Demon</p>
-        <p onClick={props.handleClick("military")}>Military</p>
-        <p onClick={props.handleClick("plot continuity")}>Plot Continuity</p>
-        <p onClick={props.handleClick("fantasy world")}>Fantasy World</p>
-        <p onClick={props.handleClick("shounen")}>Shounen</p>
-        <p onClick={props.handleClick("violence")}>Violence</p>
-        <p onClick={props.handleClick("supernatural")}>Supernatural</p>
-        <p onClick={props.handleClick("seinen")}>Seinen</p>
-        <p onClick={props.handleClick("parody")}>Parody</p>
-        <p onClick={props.handleClick("motorsport")}>Motorsport</p>
-        <p onClick={props.handleClick("space")}>Space</p>
-        </div>
-    )
-}
+  return (
+    <div className="container">
+      <h1>Categories</h1>
+      <button
+        className="btn btn-danger"
+        onClick={() => props.handleClick("comedy")}
+      >
+        Comedy
+      </button>
+      <button
+        className="btn btn-danger"
+        onClick={() => props.handleClick("fantasy")}
+      >
+        Fantasy
+      </button>
+      <button
+        className="btn btn-danger"
+        onClick={() => props.handleClick("romance")}
+      >
+        Romance
+      </button>
+      <button
+        className="btn btn-danger"
+        onClick={() => props.handleClick("action")}
+      >
+        Action
+      </button>
+      <button
+        className="btn btn-danger"
+        onClick={() => props.handleClick("school life")}
+      >
+        School Life
+      </button>
+      <button
+        className="btn btn-danger"
+        onClick={() => props.handleClick("drama")}
+      >
+        Drama
+      </button>
+      <button
+        className="btn btn-danger"
+        onClick={() => props.handleClick("adventure")}
+      >
+        Adventure
+      </button>
+      <button
+        className="btn btn-danger"
+        onClick={() => props.handleClick("slice of life")}
+      >
+        Slice of Life
+      </button>
+      <button
+        className="btn btn-danger"
+        onClick={() => props.handleClick("shoujo ai")}
+      >
+        Shoujo Ai
+      </button>
+      <button
+        className="btn btn-danger"
+        onClick={() => props.handleClick("science fiction")}
+      >
+        Science Fiction
+      </button>
+      <button
+        className="btn btn-danger"
+        onClick={() => props.handleClick("yaoi")}
+      >
+        Yaoi
+      </button>
+      <button
+        className="btn btn-danger"
+        onClick={() => props.handleClick("sport")}
+      >
+        Sport
+      </button>
+      <button
+        className="btn btn-danger"
+        onClick={() => props.handleClick("japan")}
+      >
+        Japan
+      </button>
+      <button
+        className="btn btn-danger"
+        onClick={() => props.handleClick("historical")}
+      >
+        Historical
+      </button>
+      <button
+        className="btn btn-danger"
+        onClick={() => props.handleClick("earth")}
+      >
+        Earth
+      </button>
+      <button
+        className="btn btn-danger"
+        onClick={() => props.handleClick("thriller")}
+      >
+        Thriller
+      </button>
+      <button
+        className="btn btn-danger"
+        onClick={() => props.handleClick("harem")}
+      >
+        Harem
+      </button>
+      <button
+        className="btn btn-danger"
+        onClick={() => props.handleClick("mystery")}
+      >
+        Mystery
+      </button>
+      <button
+        className="btn btn-danger"
+        onClick={() => props.handleClick("magic")}
+      >
+        Magic
+      </button>
+      <button
+        className="btn btn-danger"
+        onClick={() => props.handleClick("present")}
+      >
+        Present
+      </button>
+      <button
+        className="btn btn-danger"
+        onClick={() => props.handleClick("asia")}
+      >
+        Asia
+      </button>
+      <button
+        className="btn btn-danger"
+        onClick={() => props.handleClick("kids")}
+      >
+        Kids
+      </button>
+      <button
+        className="btn btn-danger"
+        onClick={() => props.handleClick("horror")}
+      >
+        Horror
+      </button>
+      <button
+        className="btn btn-danger"
+        onClick={() => props.handleClick("music")}
+      >
+        Music
+      </button>
+      <button
+        className="btn btn-danger"
+        onClick={() => props.handleClick("mecha")}
+      >
+        Mecha
+      </button>
+      <button
+        className="btn btn-danger"
+        onClick={() => props.handleClick("psychological")}
+      >
+        Psychological
+      </button>
+      <button
+        className="btn btn-danger"
+        onClick={() => props.handleClick("shounen ai")}
+      >
+        Shounen Ai
+      </button>
+      <button
+        className="btn btn-danger"
+        onClick={() => props.handleClick("super power")}
+      >
+        Super Power
+      </button>
+      <button
+        className="btn btn-danger"
+        onClick={() => props.handleClick("martial arts")}
+      >
+        Martial Arts
+      </button>
+      <button
+        className="btn btn-danger"
+        onClick={() => props.handleClick("demon")}
+      >
+        Demon
+      </button>
+      <button
+        className="btn btn-danger"
+        onClick={() => props.handleClick("military")}
+      >
+        Military
+      </button>
+      <button
+        className="btn btn-danger"
+        onClick={() => props.handleClick("plot continuity")}
+      >
+        Plot Continuity
+      </button>
+      <button
+        className="btn btn-danger"
+        onClick={() => props.handleClick("fantasy world")}
+      >
+        Fantasy World
+      </button>
+      <button
+        className="btn btn-danger"
+        onClick={() => props.handleClick("shounen")}
+      >
+        Shounen
+      </button>
+      <button
+        className="btn btn-danger"
+        onClick={() => props.handleClick("violence")}
+      >
+        Violence
+      </button>
+      <button
+        className="btn btn-danger"
+        onClick={() => props.handleClick("supernatural")}
+      >
+        Supernatural
+      </button>
+      <button
+        className="btn btn-danger"
+        onClick={() => props.handleClick("seinen")}
+      >
+        Seinen
+      </button>
+      <button
+        className="btn btn-danger"
+        onClick={() => props.handleClick("parody")}
+      >
+        Parody
+      </button>
+      <button
+        className="btn btn-danger"
+        onClick={() => props.handleClick("motorsport")}
+      >
+        Motorsport
+      </button>
+      <button
+        className="btn btn-danger"
+        onClick={() => props.handleClick("space")}
+      >
+        Space
+      </button>
+    </div>
+  );
+};
 
 export default CategoriesView;
