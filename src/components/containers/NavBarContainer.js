@@ -32,13 +32,14 @@ class NavBarContainer extends Component {
   };
 
   render() {
+    const word = this.state.keyword;
     console.log("props.results => ", this.props.results);
     if (this.state.returnResults === true) {
       this.setState({ returnResults: false });
       return (
         <Redirect
           to={{
-            pathname: `/results/${this.state.keyword}`,
+            pathname: `/results/${word}`,
             search: "?utm=your+face",
             state: {
               results: this.props.results,

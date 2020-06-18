@@ -9,21 +9,23 @@ const SearchResultsView = (props) => {
     <div>
       <h1>Top Results</h1>
       <div className="resultsDivs">
-        {props.results.map((anime) => (
-          <div>
-            <Link to={`/${anime.id}`}>
-              <Image
-                src={anime.attributes.posterImage.medium}
-                alt={anime.attributes.slug}
-              />
-            </Link>
-            <h5>
-              {anime.attributes.titles.en
-                ? anime.attributes.titles.en
-                : anime.attributes.slug}
-            </h5>
-          </div>
-        ))}
+        {props.results
+          ? props.results.map((anime) => (
+              <div>
+                <Link to={`/${anime.id}`}>
+                  <Image
+                    src={anime.attributes.posterImage.medium}
+                    alt={anime.attributes.slug}
+                  />
+                </Link>
+                <h5>
+                  {anime.attributes.titles.en
+                    ? anime.attributes.titles.en
+                    : anime.attributes.slug}
+                </h5>
+              </div>
+            ))
+          : null}
       </div>
     </div>
   );
