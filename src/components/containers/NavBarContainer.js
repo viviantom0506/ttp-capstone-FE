@@ -3,7 +3,6 @@ import { searchAnimeThunk } from "../../thunks";
 import NavBarView from "../views/NavBarView.js";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
-import SearchResultsContainer from "../containers/SearchResultsContainer";
 
 class NavBarContainer extends Component {
   constructor() {
@@ -26,16 +25,27 @@ class NavBarContainer extends Component {
   };
 
   handleSubmit = (event) => {
-    event.preventDefault();
     console.log(this.state.keyword);
-    this.props.searchAnime(this.state.keyword);
     this.setState({ returnResults: true });
+    this.props.searchAnime(this.state.keyword);
   };
 
   render() {
     console.log("props.results => ", this.props.results);
     if (this.state.returnResults === true) {
-      return <Redirect to={`/results/${this.state.keyword}`} />;
+      this.setState({ returnResults: false });
+      return (
+        <Redirect
+          to={{
+            pathname: `/results/${this.state.keyword}`,
+            search: "?utm=your+face",
+            state: {
+              results: this.props.results,
+              keyword: this.props.keyword,
+            },
+          }}
+        />
+      );
     }
 
     return (
