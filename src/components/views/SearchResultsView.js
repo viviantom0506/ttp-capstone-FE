@@ -1,5 +1,6 @@
 import React from "react";
 import NavBarContainer from "../containers/NavBarContainer";
+import NavBarView from "../views/NavBarView";
 import { Image, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./SearchResults.css";

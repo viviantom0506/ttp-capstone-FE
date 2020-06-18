@@ -3,7 +3,8 @@ import UsersPageView from "../views/UsersPageView";
 
 class UsersPageContainer extends Component {
   render() {
-    return <UsersPageView />;
+    const paramsId = this.props.match.params.id;
+    return <UsersPageView id={paramsId} />;
   }
 }
 
