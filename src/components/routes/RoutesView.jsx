@@ -15,7 +15,6 @@ const RoutesView = props => {
   return (
     <Switch>
       <Route exact path="/" component={HomePageContainer} />
-      <Route exact path="/:id" component={SingleAnimePageContainer} />
       <Route exact path="/results/:term" component={SearchResultsContainer} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/signup" component={Signup} />
@@ -26,8 +25,9 @@ const RoutesView = props => {
           <Route exact path="/users/:id" component={UsersPageContainer} />
         </Switch>
       )}
-      {/* Displays our Login component as a fallback
-      <Route component={Login} /> */}
+      {/* Displays our Login component as a fallback */}
+      <Route exact path="/:id" component={SingleAnimePageContainer} />
+      <Route component={Login} />
     </Switch>
   );
 };

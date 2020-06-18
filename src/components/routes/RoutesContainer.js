@@ -6,7 +6,7 @@ import { me } from '../../thunks';
 
 class RoutesContainer extends Component {
   componentDidMount() {
-    this.props.loadInitialData();
+    this.props.loadInitialData(this.props.userId);
   }
   render() {
     return <RoutesView isLoggedIn={this.props.isLoggedIn} />;
@@ -15,13 +15,14 @@ class RoutesContainer extends Component {
 
 const mapState = state => {
   return {
-    isLoggedIn: !!state.user.id
+    isLoggedIn: !!state.user.id,
+    userId: state.user.id
   };
 };
 
 const mapDispatch = dispatch => {
   return {
-    loadInitialData: () => dispatch(me())
+    loadInitialData: userId => dispatch(me(userId))
   };
 };
 

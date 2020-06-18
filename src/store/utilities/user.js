@@ -19,12 +19,13 @@ const removeUser = () => {
 };
 
 // THUNK CREATORS
-export const me = () => async dispatch => {
+export const me = userId => async dispatch => {
   try {
-    const res = await axios.get('http://localhost:3001/auth/me', {
+    const res = await axios.get(`http://localhost:3001/users/${userId}`, {
       withCredentials: true
     });
     dispatch(getUser(res.data || {}));
+    console.log(res.data);
   } catch (err) {
     console.error(err);
   }
