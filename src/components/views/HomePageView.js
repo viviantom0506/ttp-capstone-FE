@@ -17,9 +17,6 @@ const HomePageView = (props) => {
   return (
     <div>
       {console.log("views ", typeof props.trendingAnime)}
-<<<<<<< HEAD
-      <h1>{props.trendingAnime[0].attributes.slug}</h1>
-=======
       <NavBarContainer />
       <div>
         <h1>Trending Anime</h1>
@@ -57,7 +54,6 @@ const HomePageView = (props) => {
         <h1>Most Popular Anime</h1>
       </div>
       <AnimePageContainer />
->>>>>>> 8d287734f96015f66a1a9f0e335bec4c3847c046
     </div>
   );
 };
