@@ -25,6 +25,8 @@ class NavBarContainer extends Component {
   };
 
   handleSubmit = (event) => {
+    console.log(this.state.keyword);
+
     this.props.searchAnime(this.state.keyword);
     this.setState({ returnResults: true });
   };
@@ -32,6 +34,7 @@ class NavBarContainer extends Component {
   render() {
     console.log("props.results => ", this.props.results);
     if (this.state.returnResults === true) {
+      this.setState({ returnResults: false });
       return (
         <Redirect
           to={{

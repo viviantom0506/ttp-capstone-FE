@@ -4,7 +4,7 @@ import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
 
 //const randomMonth = months[Math.floor(Math.random() * months.length)]; RANDOM ELEMENT EXAMPLE
 const NavBarView = (props) => {
-  const randomAnime = Math.floor(Math.random() * (500 - 1)) + 1;
+  const randomAnime = Math.floor(Math.random() * (3000 - 1000)) + 1000;
 
   return (
     <Navbar bg="dark" variant="dark">

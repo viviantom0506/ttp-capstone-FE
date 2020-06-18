@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./HomePage.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 //import { Carousel } from "react-responsive-carousel";
-import NavBarContainer from "../containers/NavBarContainer";
 import AnimePageContainer from "../containers/AnimePageContainer";
 import { Carousel } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -13,11 +12,10 @@ const HomePageView = (props) => {
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
   };
-  //const randomMonth = months[Math.floor(Math.random() * months.length)]; RANDOM ELEMENT EXAMPLE
+
   return (
     <div>
       {console.log("views ", typeof props.trendingAnime)}
-      <NavBarContainer />
       <div>
         <h1>Trending Anime</h1>
       </div>

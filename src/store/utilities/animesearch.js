@@ -12,13 +12,18 @@ const searchAnime = (results) => {
 export const searchAnimeThunk = (searchTerm) => (dispatch) => {
   ///anime?filter[text]=cowboy%20bebop
   return axios
-    .get("https://kitsu.io/api/edge/anime?filter[text]=" + searchTerm, {
-      //   params: {
-      //     filter: {
-      //       text: "naruto",
-      //     },
-      //   },
-    })
+    .get(
+      "https://kitsu.io/api/edge/anime?filter[text]=" +
+        searchTerm +
+        "?&page[limit]=20",
+      {
+        //   params: {
+        //     filter: {
+        //       text: "naruto",
+        //     },
+        //   },
+      }
+    )
     .then((res) => {
       console.log("Search Anime Thunk ", res.data);
       return res.data;

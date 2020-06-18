@@ -10,7 +10,7 @@ const fetchAnime = (animeList) => {
 
 export const fetchAnimeListThunk = () => (dispatch) => {
   return axios
-    .get("https://kitsu.io/api/edge/anime?page[limit]=20&page[offset]=0")
+    .get("https://kitsu.io/api/edge/anime?page[limit]=18&page[offset]=0")
     .then((res) => {
       console.log("Anime thunk ", res.data);
       return res.data;

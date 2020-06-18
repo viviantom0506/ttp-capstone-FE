@@ -23,10 +23,11 @@ const SingleAnimePageView = (props) => {
       <p>{props.animeData.attributes.synopsis}</p>
 
       {/* modal controls the modal in the single page view, shows youtube video and title */}
-      <Button variant="dark" onClick={handleShow}>
-        Watch Trailer
-      </Button>
-
+      {props.animeData.attributes.youtubeVideoId ? (
+        <Button variant="dark" onClick={handleShow}>
+          Watch Trailer
+        </Button>
+      ) : null}
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>{title}</Modal.Title>
