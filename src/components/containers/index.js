@@ -3,3 +3,4 @@ export { default as UsersPageContainer } from "./UsersPageContainer";
 export { default as AnimePageContainer } from "./AnimePageContainer";
 export { default as SingleAnimePageContainer } from "./SingleAnimePageContainer";
 export { default as CategoriesContainer } from "./CategoriesContainer";
+export { default as AnimeCategoriesPageContainer} from "./AnimeCategoriesPageContainer";

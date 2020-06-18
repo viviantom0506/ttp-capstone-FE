@@ -4,6 +4,7 @@ import {
   HomePageContainer,
   UsersPageContainer,
   SingleAnimePageContainer,
+  AnimeCategoriesPageContainer,
 } from "../containers";
 
 const RoutesView = () => {
@@ -12,6 +13,7 @@ const RoutesView = () => {
       <Route exact path="/" component={HomePageContainer} />
       <Route exact path="/:id" component={SingleAnimePageContainer} />
       <Route exact path="/users/:id" component={UsersPageContainer} />
+      <Route exact path="/categories/:categories" component={AnimeCategoriesPageContainer} />
     </Switch>
   );
 };
