@@ -10,13 +10,17 @@ class HomePageContainer extends Component {
   }
 
   render() {
-    return <HomePageView trendingAnime={this.props.trendingAnime} />;
+    console.log("from HP container ", this.props.trendingAnime);
+    return this.props.trendingAnime ? (
+      <HomePageView trendingAnime={this.props.trendingAnime} />
+    ) : null;
   }
 }
 
-const mapState = state => {
+const mapState = (state) => {
+  console.log(state);
   return {
-    trendingAnime: state.trendingAnime
+    trendingAnime: state.homepage.data,
   };
 };
 
