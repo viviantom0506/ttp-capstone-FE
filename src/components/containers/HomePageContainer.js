@@ -11,7 +11,7 @@ class HomePageContainer extends Component {
 
   handlePage = id => {
     this.props.fetchSingleAnime(id);
-    console.log(id);
+    // console.log(id);
   };
 
   render() {
