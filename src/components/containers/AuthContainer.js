@@ -1,87 +1,72 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { signIn, signOut } from '../actions';
-import { GoogleLogin } from 'react-google-login';
-import Axios from 'axios';
+import { auth } from '../../thunks';
+import { AuthView } from '../views';
 
+// Smart container;
 class AuthContainer extends Component {
-  //   componentDidMount() {
-  //     window.gapi.load('client:auth2', () => {
-  //       window.gapi.client
-  //         .init({
-  //           clientId:
-  //             '273686611110-rbtfgko0l0m13h5u27mg9qtjrcqvj850.apps.googleusercontent.com',
-  //           scope: 'email'
-  //         })
-  //         .then(() => {
-  //           this.auth = window.gapi.auth2.getAuthInstance();
+  constructor() {
+    super();
+    this.state = {
+      email: '',
+      password: ''
+    };
+  }
 
-  //           this.onAuthChange(this.auth.isSignedIn.get());
-  //           this.auth.isSignedIn.listen(this.onAuthChange);
-  //         });
-  //     });
-  //   }
-
-  //   onAuthChange = isSignedIn => {
-  //     if (isSignedIn) {
-  //       this.props.signIn(this.auth.currentUser.get().getId());
-  //     } else {
-  //       this.props.signOut();
-  //     }
-  //   };
-
-  onFailure = error => {
-    alert(error);
+  handleChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
   };
 
-  //   onSignInClick = () => {
-  //     this.auth.signIn();
-  //   };
-
-  //   onSignOutClick = () => {
-  //     this.auth.signOut();
-  //   };
-
-  googleResponse = response => {
-    const tokenBlob = new Blob(
-      [JSON.stringify({ access_token: response.accessToken }, null, 2)],
-      { type: 'application/json' }
-    );
-    const options = {
-      method: 'POST',
-      body: tokenBlob,
-      mode: 'cors',
-      cache: 'default'
-    };
-    axios.get('http://localhost:3001/auth/google', options).then(res => {
-      const token = res.headers.get('x-auth-token');
-      r.json().then(user => {
-        if (token) {
-          //   this.setState({ isAuthenticated: true, user, token });
-          this.props.signIn({ isAuthenticated: true, user, token });
-        }
-      });
-    });
+  handleSubmit = event => {
+    event.preventDefault();
+    const formName = event.target.name;
+    this.props.loginOrSignup(this.state.email, this.state.password, formName);
   };
 
   render() {
-    let content = !!this.state.isAuthenticated ? null : (
+    return (
       <AuthView
-        clientId={config.GOOGLE_CLIENT_ID}
-        buttonText="Login"
-        onSuccess={this.googleResponse}
-        onFailure={this.onFailure}
-      ></AuthView>
+        name={this.props.name}
+        displayName={this.props.displayName}
+        error={this.props.error}
+        handleChange={this.handleChange}
+        handleSubmit={this.handleSubmit}
+        isLoggedIn={this.props.isLoggedIn}
+        userEmail={this.props.userEmail}
+      />
     );
-    return { content };
   }
 }
 
-const mapDispatch = dispatch => {
+// Map state to props;
+const mapLogin = state => {
   return {
-    signIn: user => dispatch(signInThunk()),
-    signOut: () => dispatch(signOutThunk())
+    name: 'login',
+    displayName: 'Login',
+    error: state.user.error,
+    isLoggedIn: !!state.user.id,
+    userEmail: state.user.email
   };
 };
 
-export default connect(null, mapDispatch)(AuthContainer);
+// Map state to props;
+const mapSignup = state => {
+  return {
+    name: 'signup',
+    displayName: 'Sign Up',
+    error: state.user.error,
+    isLoggedIn: !!state.user.id,
+    userEmail: state.user.email
+  };
+};
+
+// Map dispatch to props;
+const mapDispatch = dispatch => {
+  return {
+    loginOrSignup: (email, password, formName) =>
+      dispatch(auth(email, password, formName))
+  };
+};
+
+export const Login = connect(mapLogin, mapDispatch)(AuthContainer);
+export const Signup = connect(mapSignup, mapDispatch)(AuthContainer);
