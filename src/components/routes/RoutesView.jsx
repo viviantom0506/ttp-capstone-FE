@@ -9,9 +9,16 @@ import {
   Login,
   Signup
 } from '../containers';
+import { useCookies } from 'react-cookie';
+import { withCookies } from 'react-cookie';
 
 const RoutesView = props => {
-  const { isLoggedIn } = props;
+  // const [cookies, setCookie] = useCookies(['name']);
+  // setCookie('name', 'bLAH', { path: '/' });
+  const { isLoggedIn, cookies } = props;
+  console.log(cookies);
+  console.log(cookies.cookies);
+  // console.log('from routesview', cookies);
 
   return (
     <Switch>
@@ -23,7 +30,17 @@ const RoutesView = props => {
         <Switch>
           {/* Routes placed within this section are only available after
           logging in */}
-          <Route exact path="/users/:id" component={UsersPageContainer} />
+          {/* <Route
+            exact
+            path="/users/:id"
+            render={() => <UsersPageContainer cookies={props.cookies} />}
+          /> */}
+          <Route
+            exact
+            path="/users/:id"
+            component={UsersPageContainer}
+            cookies={props.cookies}
+          />
         </Switch>
       )}
       {/* Displays our Login component as a fallback */}
@@ -33,4 +50,4 @@ const RoutesView = props => {
   );
 };
 
-export default RoutesView;
+export default withCookies(RoutesView);

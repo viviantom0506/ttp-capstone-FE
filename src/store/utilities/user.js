@@ -1,4 +1,5 @@
 import axios from 'axios';
+// import { useCookies } from 'react-cookie';
 
 // ACTION TYPES
 const GET_USER = 'GET_USER';
@@ -20,6 +21,7 @@ const removeUser = () => {
 
 // THUNK CREATORS
 export const me = userId => async dispatch => {
+  console.log('ME IS RUNNING AGAIN');
   try {
     const res = await axios.get(`http://localhost:3001/users/${userId}`, {
       withCredentials: true
@@ -33,6 +35,8 @@ export const me = userId => async dispatch => {
 
 export const auth = (email, password, method) => async dispatch => {
   let res;
+  // const [cookies] = useCookies(['name']);
+  // console.log('user.js file, this is cookies:', cookies);
   try {
     res = await axios.post(
       `http://localhost:3001/auth/${method}`,
@@ -65,6 +69,7 @@ export const logout = () => async dispatch => {
 const reducer = (state = {}, action) => {
   switch (action.type) {
     case GET_USER:
+      console.log('from user.js reducer', action);
       return action.payload;
     case REMOVE_USER:
       return {};

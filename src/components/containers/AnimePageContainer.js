@@ -1,24 +1,22 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import AnimePageView from "../views/AnimePageView";
-import "./animepage.css";
-import { fetchAnimeListThunk, fetchSingleAnimeThunk } from "../../thunks";
-import Spinner from "react-bootstrap/Spinner";
-import Container from "react-bootstrap/Container";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import AnimePageView from '../views/AnimePageView';
+import './animepage.css';
+import { fetchAnimeListThunk, fetchSingleAnimeThunk } from '../../thunks';
+import Spinner from 'react-bootstrap/Spinner';
+import Container from 'react-bootstrap/Container';
 
 class AnimePageContainer extends Component {
   componentDidMount() {
     this.props.fetchAnime();
   }
 
-  handlePage = (id) => {
+  handlePage = id => {
     this.props.fetchSingleAnime(id);
     //<SingleAnimePageContainer id ={id} />
-    console.log(id);
   };
 
   render() {
-    console.log("before return but im in render");
     return this.props.animeList ? (
       <AnimePageView
         animeList={this.props.animeList}
@@ -35,17 +33,17 @@ class AnimePageContainer extends Component {
   }
 }
 
-const mapState = (state) => {
+const mapState = state => {
   console.log(state);
   return {
-    animeList: state.animepage.data,
+    animeList: state.animepage.data
   };
 };
 
-const mapDispatch = (dispatch) => {
+const mapDispatch = dispatch => {
   return {
     fetchAnime: () => dispatch(fetchAnimeListThunk()),
-    fetchSingleAnime: (id) => dispatch(fetchSingleAnimeThunk(id)),
+    fetchSingleAnime: id => dispatch(fetchSingleAnimeThunk(id))
   };
 };
 
