@@ -10,8 +10,7 @@ const fetchAnimeByCategories = (animeList) => {
 
 export const fetchAnimeByCategoriesThunk = (categories) => (dispatch) => {
     return axios
-      .get("https://kitsu.io/api/edge/anime?filter[categories]=" + categories
-      )
+      .get("https://kitsu.io/api/edge/anime?page[limit]=20&page[offset]=0&filter[categories]=" + categories)
       .then((res) => {
           console.log("categories thunk ",res.data);
           return res.data;

@@ -13,7 +13,7 @@ class CategoriesContainer extends Component {
     constructor() {
         super();
         this.state ={
-            toggle: false,
+            click: false,
             categories: ""
         }
     }
@@ -22,7 +22,7 @@ class CategoriesContainer extends Component {
         this.props.fetchAnimeByCategories(categories);
         console.log(categories);
         this.setState({categories: categories});
-        this.setState({toggle: true})
+        this.setState({click: true})
     };
 
     // handlePage =(id) => {
@@ -32,13 +32,13 @@ class CategoriesContainer extends Component {
 
     render() {
         console.log("before return but im in render");
-        if (this.state.toggle === true) {
+        if (this.state.click === true) {
             console.log(this.props.animeCategoriesList)
-            return (<Redirect to={{pathname:`/categories/${this.state.categories}`, 
+            return (this.props.animeCategoriesList ? <Redirect to={{pathname:`/categories/${this.state.categories}`, 
                                     search: "?utm=your+face", 
                                     state: {
                                         categories: this.props.animeCategoriesList
-                                    }}}/>)
+                                    }}}/>: null)
         }
         return <CategoriesView 
             //  animeCategoriesList={this.props.animeCategoriesList}

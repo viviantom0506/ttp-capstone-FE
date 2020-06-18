@@ -15,7 +15,7 @@ const CategoriesView = (props) => {
         <p onClick={() => {props.handleClick("shoujo ai")}}>Shoujo Ai</p>
         <p onClick={() => {props.handleClick("science fiction")}}>Science Fiction</p>
         <p onClick={() => {props.handleClick("yaoi")}}>Yaoi</p> 
-        <p onClick={() => {props.handleClick("sport")}}>Sport</p>
+        <p onClick={() => {props.handleClick("sports")}}>Sports</p>
         <p onClick={() => {props.handleClick("japan")}}>Japan</p>
         <p onClick={() => {props.handleClick("historical")}}>Historical</p>
         <p onClick={() => {props.handleClick("earth")}}>Earth</p> 
