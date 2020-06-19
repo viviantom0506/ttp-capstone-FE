@@ -21,9 +21,12 @@ const removeUser = () => {
 
 // THUNK CREATORS
 export const me = userId => async dispatch => {
-  console.log('ME IS RUNNING AGAIN');
+  console.log('ME IS RUNNING AGAIN', userId);
   try {
-    const res = await axios.get(`http://localhost:3001/users/${userId}`, {
+    // const res = await axios.get(`http://localhost:3001/users/${userId}`, {
+    //   withCredentials: true
+    // });
+    const res = await axios.get(`http://localhost:3001/auth/me`, {
       withCredentials: true
     });
     dispatch(getUser(res.data || {}));
@@ -63,7 +66,7 @@ export const logout = () => async dispatch => {
   } catch (err) {
     console.error(err);
   }
-};
+}; 
 
 // REDUCER
 const reducer = (state = {}, action) => {
