@@ -60,6 +60,7 @@ const mapSignup = state => {
   };
 };
 
+
 // Map dispatch to props;
 const mapDispatch = dispatch => {
   return {

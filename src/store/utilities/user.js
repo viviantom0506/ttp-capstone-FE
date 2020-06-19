@@ -58,6 +58,7 @@ export const auth = (email, password, method) => async dispatch => {
 };
 
 export const logout = () => async dispatch => {
+  console.log("LOGOUTTTTTTT")
   try {
     await axios.delete('http://localhost:3001/auth/logout', {
       withCredentials: true

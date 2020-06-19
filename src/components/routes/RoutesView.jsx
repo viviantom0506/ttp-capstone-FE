@@ -9,15 +9,14 @@ import {
   Login,
   Signup
 } from '../containers';
-import { useCookies } from 'react-cookie';
-import { withCookies } from 'react-cookie';
+
 
 const RoutesView = props => {
   // const [cookies, setCookie] = useCookies(['name']);
   // setCookie('name', 'bLAH', { path: '/' });
-  const { isLoggedIn, cookies } = props;
-  console.log(cookies);
-  console.log(cookies.cookies);
+  const { isLoggedIn } = props;
+  // console.log(cookies);
+  // console.log(cookies.cookies);
   // console.log('from routesview', cookies);
 
   return (
@@ -25,6 +24,7 @@ const RoutesView = props => {
       <Route exact path="/" component={HomePageContainer} />
       <Route exact path="/results/:term" component={SearchResultsContainer} />
       <Route exact path="/login" component={Login} />
+      <Route exact path = "/logout" component={Logout}/>
       <Route exact path="/signup" component={Signup} />
       {isLoggedIn && (
         <Switch>
@@ -39,7 +39,7 @@ const RoutesView = props => {
             exact
             path="/users/:id"
             component={UsersPageContainer}
-            cookies={props.cookies}
+            // cookies={props.cookies}
           />
         </Switch>
       )}
@@ -50,4 +50,4 @@ const RoutesView = props => {
   );
 };
 
-export default withCookies(RoutesView);
+export default RoutesView;

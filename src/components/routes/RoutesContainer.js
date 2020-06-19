@@ -3,9 +3,7 @@ import RoutesView from './RoutesView';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { me } from '../../thunks';
-import { withCookies } from 'react-cookie';
 
-let cookies = {};
 
 class RoutesContainer extends Component {
   // constructor(props) {
@@ -15,7 +13,7 @@ class RoutesContainer extends Component {
   // this.state = { cookies: {}};
   componentDidMount() {
     console.log('routes container is mounting again');
-    this.props.loadInitialData(this.props.userId, this.props.cookies);
+    this.props.loadInitialData(this.props.userId);
     // console.log(this.props);
     // // setting a cookie
     // cookies = this.props.cookies;
@@ -29,15 +27,14 @@ class RoutesContainer extends Component {
 
   render() {
     console.log(this.props);
-    const { cookies } = this.props;
+
     // cookies.set('email', this.props.user.email);
     // cookies.set('isLoggedIn', true);
-    console.log(cookies);
-    console.log(cookies.cookies);
+
     return (
       <RoutesView
         isLoggedIn={this.props.isLoggedIn}
-        cookies={this.props.cookies}
+
       />
     );
   }
@@ -48,7 +45,6 @@ const mapState = (state, ownProps) => {
   return {
     isLoggedIn: !!state.user.id,
     userId: state.user.id,
-    cookies: ownProps.cookies,
     user: state.user
   };
 };
@@ -64,9 +60,9 @@ const mapState = (state, ownProps) => {
 
 const mapDispatch = dispatch => {
   return {
-    loadInitialData: (userId, cookies) => dispatch(me(userId, cookies))
+    loadInitialData: (userId) => dispatch(me(userId))
   };
 };
 
 // export default withRouter(connect(mapState, mapDispatch)(RoutesContainer));
-export default withCookies(connect(mapState, mapDispatch)(RoutesContainer));
+export default connect(mapState, mapDispatch)(RoutesContainer);
