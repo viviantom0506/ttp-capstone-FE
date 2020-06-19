@@ -1,5 +1,6 @@
 import axios from "axios";
 const FETCH_SINGLE_ANIME = "FETCH_SINGLE_ANIME";
+const ADD_TO_FAVORITES = 'ADD_TO_FAVORITES';
 
 const fetchSingleAnime = (singleAnime) => {
   return {
@@ -7,6 +8,26 @@ const fetchSingleAnime = (singleAnime) => {
     payload: singleAnime,
   };
 };
+
+const addToFavorites = (animeId) =>{
+  return {
+    type: ADD_TO_FAVORITES,
+    payload: animeId,
+  }
+}
+
+export const addToFavoritesThunk =(anime, animeId, userId)=> (dispatch) =>{
+  axios.post("http://localhost:3001/api/animes/", anime) 
+  .then((res) => {
+    console.log(res);
+  }).then(() => {
+  return axios.put(`http://localhost:3001/api/animes/${animeId}`, { userId })
+  .then((res) =>res.data)
+  .then((anime) => dispatch(addToFavorites(anime)))
+  .catch((err) =>console.log(err))
+})
+  
+}
 
 export const fetchSingleAnimeThunk = (id) => (dispatch) => {
   return axios
@@ -26,6 +47,9 @@ const reducer = (state = [], action) => {
     case FETCH_SINGLE_ANIME:
       console.log("single anime reducer -- ", action.payload);
       return action.payload;
+    case ADD_TO_FAVORITES:
+      console.log("Favorite added", action.payload);
+      return action.payload
     default:
       return state;
   }

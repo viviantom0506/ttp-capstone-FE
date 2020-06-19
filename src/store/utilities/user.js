@@ -4,6 +4,7 @@ import axios from 'axios';
 // ACTION TYPES
 const GET_USER = 'GET_USER';
 const REMOVE_USER = 'REMOVE_USER';
+const GET_USER_AND_ANIMES = 'GET_USER_AND_ANIMES';
 
 // ACTION CREATORS
 const getUser = user => {
@@ -19,7 +20,29 @@ const removeUser = () => {
   };
 };
 
+const getUserAndAnimes = (user) => {
+  return {
+    type: GET_USER_AND_ANIMES,
+    payload: user
+  }
+}
+
+
 // THUNK CREATORS
+
+export const getUserAndAnimesThunk = userId => async dispatch => {
+  console.log("GET USER AND ANIMES THUNK");
+  console.log(userId);
+  await axios.get(`http://localhost:3001/api/users/${userId}`)
+  .then((res) => console.log(res))
+  .then((res) => res.data)
+  //.then(userAndAnimes => dispatch(getUserAndAnimes(userAndAnimes)))
+  .catch(err => console.log(err));
+  // .then(res => {console.log(res.data); return res.data})
+  // .then(userWithAnimes => dispatch(getUserAndAnimes(userWithAnimes)))
+  // .catch(err => console.log(err));
+}
+
 export const me = userId => async dispatch => {
   console.log('ME IS RUNNING AGAIN', userId);
   try {
@@ -69,6 +92,7 @@ export const logout = () => async dispatch => {
   }
 }; 
 
+
 // REDUCER
 const reducer = (state = {}, action) => {
   switch (action.type) {
@@ -77,6 +101,9 @@ const reducer = (state = {}, action) => {
       return action.payload;
     case REMOVE_USER:
       return {};
+    case GET_USER_AND_ANIMES:
+      console.log('this is get user and animes from user reducer', action.payload);
+      return action.payload;
     default:
       return state;
   }

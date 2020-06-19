@@ -17,6 +17,7 @@ const SingleAnimePageView = (props) => {
     <Container>
       <img src={props.animeData.attributes.posterImage.small}></img>
       <h1>{title}</h1>
+      <Button onClick={props.handleClick}>Add to favorites</Button>
       <p>
         <b>Episodes:</b> {props.animeData.attributes.episodeCount}
       </p>
