@@ -1,33 +1,60 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import CategoriesView from "../views/CategoriesView";
+import CategoriesView from "../views/categoriesView";
+import AnimeCategoriesPageView from "../views/AnimeCategoriesPageView";
 import "./animepage.css";
-import { fetchAnimeByCategoriesThunk } from "../../thunks";
+import {
+  fetchAnimeByCategoriesThunk,
+  fetchSingleAnimeThunk,
+} from "../../thunks";
+import { Redirect } from "react-router-dom";
 
 class CategoriesContainer extends Component {
-  handleClick = (categories) => {
-    //this.props.fetchAnimeByCategories(categories);
-    alert(categories);
-    console.log(categories);
-  };
   // componentDidMount() {
-  //   this.props.fetchAnimeByCategories();
+  //     this.props.fetchAnimeByCategories();
+  // }
+  constructor() {
+    super();
+    this.state = {
+      click: false,
+      categories: "",
+    };
+  }
+
+  handleClick = (categories) => {
+    this.props.fetchAnimeByCategories(categories);
+    console.log(categories);
+    this.setState({ categories: categories });
+    this.setState({ click: true });
+  };
+
+  // handlePage =(id) => {
+  //     this.props.fetchSingleAnime(id);
+  //     console.log(id);
   // }
 
   render() {
     console.log("before return but im in render");
+    if (this.state.click === true) {
+      console.log(this.props.animeCategoriesList);
+      return this.props.animeCategoriesList ? (
+        <Redirect
+          to={{
+            pathname: `/categories/${this.state.categories}`,
+            search: "?utm=your+face",
+            state: {
+              categories: this.props.animeCategoriesList,
+            },
+          }}
+        />
+      ) : null;
+    }
     return (
       <CategoriesView
-        animeCategoriesList={this.props.animeCategoriesList}
+        //  animeCategoriesList={this.props.animeCategoriesList}
         handleClick={this.handleClick}
       />
     );
-    // return this.props.animeCategoriesList ? (
-    //     <CategoriesView
-    //       animeCategoriesList={this.props.animeCategoriesList}
-    //       handleClick={this.handleClick}
-    //     />
-    // ): null;
   }
 }
 
@@ -40,7 +67,8 @@ const mapState = (state) => {
 
 const mapDispatch = (dispatch) => {
   return {
-    fetchAnimeByCategories: (id) => dispatch(fetchAnimeByCategoriesThunk(id)),
+    fetchAnimeByCategories: (categories) =>
+      dispatch(fetchAnimeByCategoriesThunk(categories)),
   };
 };
 

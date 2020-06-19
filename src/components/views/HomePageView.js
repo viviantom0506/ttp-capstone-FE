@@ -5,7 +5,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import NavBarContainer from "../containers/NavBarContainer";
 import AnimePageContainer from "../containers/AnimePageContainer";
 import { Carousel } from "react-bootstrap";
-import CategoriesContainer from "../containers/CategoriesContainer";
+import CategoriesContainer from "../containers/categoriesContainer";
 
 const HomePageView = (props) => {
   const [index, setIndex] = useState(0);
