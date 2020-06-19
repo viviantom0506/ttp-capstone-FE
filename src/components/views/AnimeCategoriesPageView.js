@@ -3,6 +3,7 @@ import "./animestyle.css";
 import { Link } from "react-router-dom";
 
 const AnimeCategoriesPageView = (props) => {
+    {console.log(props.anime)}
     return (
         <div className="animeflex">
             {props.anime.map((animeCategories) => (

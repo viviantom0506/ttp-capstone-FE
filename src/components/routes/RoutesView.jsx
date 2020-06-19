@@ -26,7 +26,10 @@ const RoutesView = props => {
       <Route exact path="/" component={HomePageContainer} />
       <Route exact path="/results/:term" component={SearchResultsContainer} />
       <Route exact path="/login" component={Login} />
-      <Route exact path = "/logout" component={Logout}/>
+      <Route exact path="/categories/:categories" component={AnimeCategoriesPageContainer} />
+      <Route exact path="/:id" component={SingleAnimePageContainer} />
+      {/* <Route exact path = "/logout" component={Logout}/> */}
+
       <Route exact path="/signup" component={Signup} />
       {isLoggedIn && (
         <Switch>
@@ -46,10 +49,10 @@ const RoutesView = props => {
         </Switch>
       )}
       {/* Displays our Login component as a fallback */}
-      <Route component={Login} />
+     
       {/* <Route exact path="/users/:id" component={UsersPageContainer} /> */}
-      <Route exact path="/categories/:categories" component={AnimeCategoriesPageContainer} />
-      <Route exact path="/:id" component={SingleAnimePageContainer} />
+      
+      <Route component={Login} />
     </Switch>
   );
 };
