@@ -7,7 +7,8 @@ import {
   SignUpContainer,
   SearchResultsContainer,
   Login,
-  Signup
+  Signup,
+  AnimeCategoriesPageContainer,
 } from '../containers';
 
 
@@ -18,6 +19,7 @@ const RoutesView = props => {
   // console.log(cookies);
   // console.log(cookies.cookies);
   // console.log('from routesview', cookies);
+
 
   return (
     <Switch>
@@ -44,8 +46,10 @@ const RoutesView = props => {
         </Switch>
       )}
       {/* Displays our Login component as a fallback */}
-      <Route exact path="/:id" component={SingleAnimePageContainer} />
       <Route component={Login} />
+      {/* <Route exact path="/users/:id" component={UsersPageContainer} /> */}
+      <Route exact path="/categories/:categories" component={AnimeCategoriesPageContainer} />
+      <Route exact path="/:id" component={SingleAnimePageContainer} />
     </Switch>
   );
 };

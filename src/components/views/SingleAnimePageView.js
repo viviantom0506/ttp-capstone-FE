@@ -12,6 +12,7 @@ const SingleAnimePageView = (props) => {
     : props.animeData.attributes.titles.en_jp;
   const ytLink = `https://www.youtube.com/embed/${props.animeData.attributes.youtubeVideoId}`;
 
+  // const anime = props.animeData;
   return (
     <Container>
       <img src={props.animeData.attributes.posterImage.small}></img>

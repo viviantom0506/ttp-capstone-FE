@@ -6,6 +6,7 @@ import NavBarContainer from "../containers/NavBarContainer";
 import AnimePageContainer from "../containers/AnimePageContainer";
 import { Carousel } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import CategoriesContainer from "../containers/categoriesContainer";
 
 const HomePageView = (props) => {
   const [index, setIndex] = useState(0);
@@ -49,7 +50,7 @@ const HomePageView = (props) => {
           </Carousel.Item>
         ))}
       </Carousel>
-
+      <CategoriesContainer />
       <div className="popAnimeTag">
         <h1>Most Popular Anime</h1>
       </div>
