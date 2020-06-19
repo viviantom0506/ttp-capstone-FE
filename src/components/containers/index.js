@@ -7,3 +7,4 @@ export { default as AnimePageContainer } from "./AnimePageContainer";
 export { default as SingleAnimePageContainer } from "./SingleAnimePageContainer";
 export { default as CategoriesContainer } from "./categoriesContainer";
 export { default as AnimeCategoriesPageContainer } from "./AnimeCategoriesPageContainer";
+

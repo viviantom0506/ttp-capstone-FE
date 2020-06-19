@@ -5,9 +5,9 @@ import { Image } from "react-bootstrap";
 
 const AnimePageView = (props) => {
   return (
-    <div className="animeflex">
+    <div className="d-flex flex-wrap justify-content-around">
       {props.animeList.map((anime) => (
-        <div>
+        <div className="img-fluid p-5 ">
           <Link to={`/${anime.id}`}>
             <Image
               src={anime.attributes.posterImage.medium}

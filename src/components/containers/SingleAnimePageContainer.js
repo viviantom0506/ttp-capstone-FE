@@ -22,7 +22,6 @@ export class SingleAnimePageContainer extends Component {
 
     return !this.props.anime ? null : (
       <div>
-        <NavBarContainer />
         <SingleAnimePageView animeData={this.props.anime} />
       </div>
     );

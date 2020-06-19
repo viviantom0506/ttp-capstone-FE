@@ -7,7 +7,8 @@ class UsersPageContainer extends Component {
     console.log('users page container mounted');
   }
   render() {
-    return <UsersPageView cookies={this.props.cookies} />;
+    const paramsId = this.props.match.params.id;
+    return <UsersPageView id={paramsId} />;
   }
 }
 

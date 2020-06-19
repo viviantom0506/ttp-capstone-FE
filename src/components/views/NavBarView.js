@@ -1,8 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Router, Link } from "react-router-dom";
 import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
 
+//const randomMonth = months[Math.floor(Math.random() * months.length)]; RANDOM ELEMENT EXAMPLE
 const NavBarView = (props) => {
+  const randomAnime = Math.floor(Math.random() * (5000 - 1)) + 1;
+
   return (
     <Navbar bg="dark" variant="dark">
       <Link to="/">
@@ -11,6 +14,7 @@ const NavBarView = (props) => {
       <Nav className="mr-auto">
         <Nav.Link href="/">Home</Nav.Link>
         <Nav.Link href="/users/:id">Profile</Nav.Link>
+        <Nav.Link href={`/${randomAnime}`}>Random Anime</Nav.Link>
       </Nav>
       <Form inline onSubmit={props.handleSubmit}>
         <FormControl
