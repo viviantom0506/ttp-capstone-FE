@@ -1,16 +1,23 @@
 import React, { Component } from "react";
 import SearchResultsView from "../views/SearchResultsView";
+import { connect } from "react-redux";
 export class SearchResultsContainer extends Component {
   render() {
     return (
       <div>
         <SearchResultsView
-          results={this.props.location.state.results}
-          keyword={this.props.location.state.keyword}
+          results={this.props.results}
+          // keyword={this.props.location.state.keyword}
         />
       </div>
     );
   }
 }
 
-export default SearchResultsContainer;
+const mapState = (state) => {
+  console.log("Hellofrom SRC", state.search.data);
+  return {
+    results: state.search.data,
+  };
+};
+export default connect(mapState)(SearchResultsContainer);

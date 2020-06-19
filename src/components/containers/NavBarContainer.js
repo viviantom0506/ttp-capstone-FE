@@ -41,10 +41,6 @@ class NavBarContainer extends Component {
           to={{
             pathname: `/results/${word}`,
             search: "?utm=your+face",
-            state: {
-              results: this.props.results,
-              keyword: this.props.keyword,
-            },
           }}
         />
       );
