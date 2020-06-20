@@ -39,7 +39,7 @@ const NavBarView = props => {
 	return (
 		<Navbar bg="dark" variant="dark" style={{ top: 0 }}>
 			<Link to="/">
-				<Navbar.Brand>Anime Project</Navbar.Brand>
+				<Navbar.Brand>Zenime</Navbar.Brand>
 			</Link>
 			<Nav className="mr-auto">
 				<Nav.Link href="/">Home</Nav.Link>

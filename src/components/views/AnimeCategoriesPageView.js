@@ -11,11 +11,14 @@ const AnimeCategoriesPageView = props => {
 			<h1></h1>
 			{props.anime.map(animeCategories => (
 				<div className="anime-cell">
-					<img
-						className="anime-image"
-						src={animeCategories.attributes.posterImage.small}
-						alt={animeCategories.attributes.slug}
-					/>
+					<Link to={`/${animeCategories.id}`}>
+						{/* {console.log(animeCategories)} */}
+						<img
+							className="anime-image"
+							src={animeCategories.attributes.posterImage.small}
+							alt={animeCategories.attributes.slug}
+						/>
+					</Link>
 					<h4>{animeCategories.attributes.titles.en_jp}</h4>
 				</div>
 			))}

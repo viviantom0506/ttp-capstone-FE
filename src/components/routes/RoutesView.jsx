@@ -33,28 +33,29 @@ const RoutesView = props => {
 			<Route exact path="/:id" component={SingleAnimePageContainer} />
 			{/* <Route exact path = "/logout" component={Logout}/> */}
 
-			{isLoggedIn && (
+			<Route exact path="/users/:id" component={UsersPageContainer} />
+			{/* {isLoggedIn && (
 				<Switch>
 					{/* Routes placed within this section are only available after
           logging in */}
-					{/* <Route
+			{/* <Route
             exact
             path="/users/:id"
             render={() => <UsersPageContainer cookies={props.cookies} />}
           /> */}
-					<Route
+			{/* <Route
 						exact
 						path="/users/:id"
 						component={UsersPageContainer}
 						// cookies={props.cookies}
 					/>
 				</Switch>
-			)}
+					)} */}
 			{/* Displays our Login component as a fallback */}
 
 			{/* <Route exact path="/users/:id" component={UsersPageContainer} /> */}
 
-			<Route component={Login} />
+			{/* <Route component={Login} /> */}
 		</Switch>
 	);
 };

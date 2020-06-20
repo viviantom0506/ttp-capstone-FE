@@ -34,15 +34,9 @@ class NavBarContainer extends Component {
 	handleLogout = () => {
 		console.log('HELHLALNLDLLE LOG');
 		this.props.logout();
+		this.props.history.push('/');
 	};
-	displayNavbar = () => {
-		if (this.props.user) {
-			console.log('user exists');
-			console.log(this.props.user);
-		} else {
-			console.log('user does not exist');
-		}
-	};
+	//
 
 	// componentDidUpdate(prevProps) {
 	// 	if (this.state.user != prevProps.user) {
@@ -68,7 +62,6 @@ class NavBarContainer extends Component {
 
 		return (
 			<>
-				{this.displayNavbar()}
 				<NavBarView
 					handleChange={this.handleChange}
 					handleSubmit={this.handleSubmit}

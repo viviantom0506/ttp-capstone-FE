@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { auth } from '../../thunks';
 import { AuthView } from '../views';
+import history from '../../history';
 
 // Smart container;
 class AuthContainer extends Component {
@@ -21,6 +22,7 @@ class AuthContainer extends Component {
 		event.preventDefault();
 		const formName = event.target.name;
 		this.props.loginOrSignup(this.state.email, this.state.password, formName);
+		this.props.history.push('/');
 	};
 
 	render() {
