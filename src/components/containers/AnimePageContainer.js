@@ -7,44 +7,78 @@ import Spinner from 'react-bootstrap/Spinner';
 import Container from 'react-bootstrap/Container';
 
 class AnimePageContainer extends Component {
-  componentDidMount() {
-    this.props.fetchAnime();
-  }
+	constructor() {
+		super();
+		this.state = {
+			page: 0,
+		};
+	}
+	componentDidMount() {
+		this.props.fetchAnime(this.state.page);
+	}
 
-  handlePage = id => {
-    this.props.fetchSingleAnime(id);
-    //<SingleAnimePageContainer id ={id} />
-  };
+	handlePage = id => {
+		this.props.fetchSingleAnime(id);
+		//<SingleAnimePageContainer id ={id} />
+	};
 
-  render() {
-    return this.props.animeList ? (
-      <AnimePageView
-        animeList={this.props.animeList}
-        handlePage={this.handlePage}
-      />
-    ) : (
-      <Container>
-        <Spinner animation="border" role="status">
-          <span className="sr-only">Loading...</span>
-        </Spinner>
-      </Container>
-    );
-    // < AnimePageView animeList={this.props.animeList, console.log("HELLO FROM ANIME pg cont",this.props.animeList)} />
-  }
+	handleNext = () => {
+		const newPage = this.state.page + 18;
+		this.setState({ page: newPage });
+		this.props.fetchAnime(newPage);
+	};
+
+	handlePrev = () => {
+		const newPage = this.state.page - 18;
+		return this.state.page == 0
+			? this.state
+			: (this.setState({ page: newPage }), this.props.fetchAnime(newPage));
+	};
+
+	render() {
+		return this.props.animeList ? (
+			<>
+				<AnimePageView
+					animeList={this.props.animeList}
+					handlePage={this.handlePage}
+					next={this.handleNext}
+					prev={this.handlePrev}
+				/>
+
+				<nav aria-label="Page navigation example">
+					<ul class="pagination">
+						<li class="page-item">
+							<button onClick={this.handlePrev}>Previous</button>
+						</li>
+						<li class="page-item">
+							<button onClick={this.handleNext}>Next</button>
+						</li>
+					</ul>
+				</nav>
+			</>
+		) : (
+			<Container>
+				<Spinner animation="border" role="status">
+					<span className="sr-only">Loading...</span>
+				</Spinner>
+			</Container>
+		);
+		// < AnimePageView animeList={this.props.animeList, console.log("HELLO FROM ANIME pg cont",this.props.animeList)} />
+	}
 }
 
 const mapState = state => {
-  console.log(state);
-  return {
-    animeList: state.animepage.data
-  };
+	console.log(state);
+	return {
+		animeList: state.animepage.data,
+	};
 };
 
 const mapDispatch = dispatch => {
-  return {
-    fetchAnime: () => dispatch(fetchAnimeListThunk()),
-    fetchSingleAnime: id => dispatch(fetchSingleAnimeThunk(id))
-  };
+	return {
+		fetchAnime: page => dispatch(fetchAnimeListThunk(page)),
+		fetchSingleAnime: id => dispatch(fetchSingleAnimeThunk(id)),
+	};
 };
 
 export default connect(mapState, mapDispatch)(AnimePageContainer);
