@@ -1,3 +1,8 @@
+* {
+  font-family: 'Poppins', sans-serif;
+
+}
+
 .animeflex {
   display: flex;
   flex-direction: row;
@@ -9,4 +14,20 @@
 .animeflex div {
   margin: 15px;
   text-align: center;
+}
+
+.favItem {
+  padding-bottom: 3px;
+  border-bottom: black solid 1px;
+}
+
+
+
+.anime-cells {
+  width: 200px;
+  margin: 20px;
+  height: auto;
+  font-size: 1.2em;
+  text-align: center;
+
 }

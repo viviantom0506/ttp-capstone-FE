@@ -37,7 +37,7 @@ const NavBarView = props => {
 	const randomAnime = Math.floor(Math.random() * (5000 - 1)) + 1;
 
 	return (
-		<Navbar bg="dark" variant="dark">
+		<Navbar bg="dark" variant="dark" style={{ top: 0 }}>
 			<Link to="/">
 				<Navbar.Brand>Anime Project</Navbar.Brand>
 			</Link>

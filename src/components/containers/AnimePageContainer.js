@@ -48,10 +48,14 @@ class AnimePageContainer extends Component {
 				<nav aria-label="Page navigation example">
 					<ul class="pagination">
 						<li class="page-item">
-							<button onClick={this.handlePrev}>Previous</button>
+							<button className="btn btn-dark" onClick={this.handlePrev}>
+								Previous
+							</button>
 						</li>
 						<li class="page-item">
-							<button onClick={this.handleNext}>Next</button>
+							<button className="btn btn-dark" onClick={this.handleNext}>
+								Next
+							</button>
 						</li>
 					</ul>
 				</nav>
