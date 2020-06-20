@@ -1,4 +1,8 @@
 .anime-cell {
-    width: 250px;
-    height: auto;
+    padding: 10px;
+
+}
+
+.titles {
+    font-size: .5em;
 }
