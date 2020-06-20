@@ -34,9 +34,9 @@ export const getUserAndAnimesThunk = userId => async dispatch => {
   console.log("GET USER AND ANIMES THUNK");
   console.log(userId);
   await axios.get(`http://localhost:3001/api/users/${userId}`)
-  .then((res) => console.log(res))
+  //.then((res) => console.log(res))
   .then((res) => res.data)
-  //.then(userAndAnimes => dispatch(getUserAndAnimes(userAndAnimes)))
+  .then(userAndAnimes => dispatch(getUserAndAnimes(userAndAnimes)))
   .catch(err => console.log(err));
   // .then(res => {console.log(res.data); return res.data})
   // .then(userWithAnimes => dispatch(getUserAndAnimes(userWithAnimes)))
@@ -52,6 +52,7 @@ export const me = userId => async dispatch => {
     const res = await axios.get(`http://localhost:3001/auth/me`, {
       withCredentials: true
     });
+    console.log(res);
     dispatch(getUser(res.data || {}));
     console.log(res.data);
   } catch (err) {

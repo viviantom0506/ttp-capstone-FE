@@ -17,15 +17,19 @@ const addToFavorites = (animeId) =>{
 }
 
 export const addToFavoritesThunk =(anime, animeId, userId)=> (dispatch) =>{
-  axios.post("http://localhost:3001/api/animes/", anime) 
+  const editedAnime = anime;
+  editedAnime.userId = userId;
+  axios.post("http://localhost:3001/api/animes/", editedAnime) 
   .then((res) => {
     console.log(res);
-  }).then(() => {
-  return axios.put(`http://localhost:3001/api/animes/${animeId}`, { userId })
-  .then((res) =>res.data)
+    return res.data;
+  })
+  //return axios.put(`http://localhost:3001/api/animes/${animeId}`, { userId })
+  //.then((res) =>res.data)
   .then((anime) => dispatch(addToFavorites(anime)))
   .catch((err) =>console.log(err))
-})
+
+
   
 }
 

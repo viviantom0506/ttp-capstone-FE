@@ -13,7 +13,7 @@ const NavBarView = (props) => {
       </Link>
       <Nav className="mr-auto">
         <Nav.Link href="/">Home</Nav.Link>
-        <Nav.Link href="/users/:id">Profile</Nav.Link>
+        <Nav.Link href={`/users/${props.user.id}`}>Profile</Nav.Link>
         <Nav.Link href={`/${randomAnime}`}>Random Anime</Nav.Link>
       </Nav>
       <Form inline onSubmit={props.handleSubmit}>

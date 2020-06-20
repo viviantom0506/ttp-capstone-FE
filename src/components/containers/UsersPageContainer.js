@@ -5,6 +5,7 @@ import { me, fetchAnimeListThunk, getUserAndAnimesThunk } from '../../thunks';
 
 class UsersPageContainer extends Component {
   componentDidMount(props) {
+    
     console.log('users page container mounted');
     this.props.loadInitialData(this.props.match.params.id);
     this.props.fetchAnimeId();
@@ -32,7 +33,7 @@ class UsersPageContainer extends Component {
     console.log(this.props.user);
     if (paramsId == this.props.user.id) { 
       console.log("yes they match")
-      return <UsersPageView id={paramsId} user={this.props.user} favorites={this.props.allAnime} />;
+      return <UsersPageView id={paramsId} user={this.props.user}/>;
     } else {
       console.log("nope");
       return <h1>You don't have access to this page</h1>

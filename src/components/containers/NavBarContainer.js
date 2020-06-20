@@ -50,6 +50,7 @@ class NavBarContainer extends Component {
       <NavBarView
         handleChange={this.handleChange}
         handleSubmit={this.handleSubmit}
+        user={this.props.user}
       />
     );
   }
@@ -59,12 +60,14 @@ const mapState = (state) => {
   console.log("from the navbar Container for search====>", state.search.data);
   return {
     results: state.search.data,
+    user: state.user
   };
 };
 
 const mapDispatch = (dispatch) => {
   return {
     searchAnime: (searchTerm) => dispatch(searchAnimeThunk(searchTerm)),
+    
   };
 };
 
