@@ -52,7 +52,7 @@ const HomePageView = props => {
 					src="https://66.media.tumblr.com/efb3a6fc5a0e76829798bdb3d735ecf5/tumblr_mrnj0g6qza1rfjowdo1_500.gif"
 					alt="pikachu gif"
 				/>
-				<h1>Popluar Anime</h1>
+				<h1>Popular Anime</h1>
 			</div>
 			<AnimePageContainer />
 		</div>
