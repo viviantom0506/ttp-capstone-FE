@@ -16,7 +16,7 @@ const AuthFormView = (props) => {
     <div className="container-sm">
       <div className="card">
         <div className="container p-1">
-          {isLoggedIn ? `The current logged in user is: ${userEmail}` : ""}
+          {isLoggedIn ? ` ${userEmail} is now logged in` : ""}
           <form onSubmit={handleSubmit} name={name}>
             <div>
               <label htmlFor="email">

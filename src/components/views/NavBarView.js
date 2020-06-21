@@ -50,6 +50,7 @@ const NavBarView = (props) => {
         </Nav>
 
         <Nav>
+          {navbarDisplay(props)}
           <Form inline onSubmit={props.handleSubmit}>
             <FormControl
               type="text"
@@ -62,7 +63,6 @@ const NavBarView = (props) => {
               Search
             </Button>
           </Form>
-          {navbarDisplay(props)}
         </Nav>
       </Navbar.Collapse>
     </Navbar>

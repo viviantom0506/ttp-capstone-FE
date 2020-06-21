@@ -53,11 +53,8 @@ const SingleAnimePageView = (props) => {
 					</p>
 				</Media.Body>
 	  </Media> */}
-      <div className="card-parent">
-        <div
-          className="d-flex flex-row align-items-center card-single card bg-dark text-white"
-          style={{ width: 1500 }}
-        >
+      <div className="card-parent container-fluid">
+        <div className="d-flex flex-row align-items-center card-single card bg-dark text-white singleCard">
           <img
             // className="singleImage"
             className="card-img-top rounded"
@@ -78,27 +75,29 @@ const SingleAnimePageView = (props) => {
                 Watch Trailer
               </Button>
             ) : null}
-            <Modal show={show} onHide={handleClose}>
-              <Modal.Header closeButton>
-                <Modal.Title>{title}</Modal.Title>
-              </Modal.Header>
-              <Modal.Body>
-                <iframe
-                  width="450"
-                  height="320"
-                  src={ytLink}
-                  frameborder="0"
-                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                  title="video"
-                ></iframe>
-              </Modal.Body>
-              <Modal.Footer>
-                <Button variant="dark" onClick={handleClose}>
-                  Close
-                </Button>
-              </Modal.Footer>
-            </Modal>
+            <div className="container-fluid">
+              <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                  <Modal.Title>{title}</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  <iframe
+                    width="450"
+                    height="300"
+                    src={ytLink}
+                    frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    title="video"
+                  ></iframe>
+                </Modal.Body>
+                <Modal.Footer>
+                  <Button variant="dark" onClick={handleClose}>
+                    Close
+                  </Button>
+                </Modal.Footer>
+              </Modal>
+            </div>
           </div>
 
           {/* modal controls the modal in the single page view, shows youtube video and title */}
