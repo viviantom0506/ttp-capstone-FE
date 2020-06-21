@@ -189,3 +189,9 @@ body {
   height: auto;
   margin-bottom: 5px;
 }
+
+.profileImg {
+  min-width: 100%;
+  min-height: auto;
+  overflow: hidden;
+}

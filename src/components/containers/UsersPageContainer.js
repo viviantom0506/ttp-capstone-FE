@@ -31,7 +31,8 @@ class UsersPageContainer extends Component {
     const paramsId = this.props.match.params.id;
     console.log(paramsId);
     console.log(this.props.user);
-    if (paramsId === this.props.user.id) {
+    if (paramsId == this.props.user.id) {
+      //if the user is logged in and the profile is unreachable, use (==) not (===)
       console.log("yes they match");
       return <UsersPageView id={paramsId} user={this.props.user} />;
     } else if (this.props.user.id) {

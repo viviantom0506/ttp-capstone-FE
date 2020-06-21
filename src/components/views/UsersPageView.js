@@ -10,8 +10,8 @@ function UsersPageView(props) {
         <div>
           <img
             src="https://100filmsinayear.files.wordpress.com/2011/08/my-neighbour-totoro-banner.jpg"
-            className="img-fluid"
-            style={{ width: 1500, height: "auto" }}
+            className="img-fluid profileImg"
+            // style={{ width: 1500, height: "auto" }}
             alt="profile banner totoro"
           />
           <div className="email">

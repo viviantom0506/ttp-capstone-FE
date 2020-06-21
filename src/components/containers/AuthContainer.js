@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { auth } from "../../thunks";
 import { AuthView } from "../views";
+import history from "../../history";
+import { Route, withRouter } from "react-router-dom";
 
 // Smart container;
 class AuthContainer extends Component {
@@ -73,3 +75,4 @@ const mapDispatch = (dispatch) => {
 export const Login = connect(mapLogin, mapDispatch)(AuthContainer);
 export const Signup = connect(mapSignup, mapDispatch)(AuthContainer);
 export const logout = connect(null, mapDispatch)(AuthContainer);
+export default withRouter(AuthContainer);

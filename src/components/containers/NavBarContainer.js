@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { searchAnimeThunk, logout } from "../../thunks";
 import NavBarView from "../views/NavBarView.js";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, withRouter } from "react-router-dom";
 
 class NavBarContainer extends Component {
   constructor() {
@@ -90,4 +90,4 @@ const mapDispatch = (dispatch) => {
   };
 };
 
-export default connect(mapState, mapDispatch)(NavBarContainer);
+export default withRouter(connect(mapState, mapDispatch)(NavBarContainer));
