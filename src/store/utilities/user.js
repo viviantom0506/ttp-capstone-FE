@@ -31,7 +31,7 @@ const getUserAndAnimes = user => {
 
 export const getUserAndAnimesThunk = userId => async dispatch => {
 	await axios
-		.get(`http://zenime-server.herokuapp.com/api/users/${userId}`)
+		.get(`https://zenime-server.herokuapp.com/api/users/${userId}`)
 		//.then((res) => console.log(res))
 		.then(res => res.data)
 		.then(userAndAnimes => dispatch(getUserAndAnimes(userAndAnimes)))
@@ -59,7 +59,7 @@ export const auth = (email, password, method) => async dispatch => {
 	// console.log('user.js file, this is cookies:', cookies);
 	try {
 		res = await axios.post(
-			`http://zenime-server.herokuapp.com/auth/${method}`,
+			`https://zenime-server.herokuapp.com/auth/${method}`,
 			{ email, password },
 			{ withCredentials: true },
 		);

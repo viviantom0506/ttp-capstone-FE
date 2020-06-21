@@ -15,7 +15,7 @@ const addUser = user => {
 // Thunk Creators
 export const addUserThunk = id => dispatch => {
 	return axios
-		.post(`http://zenime-server.herokuapp.com/api/users/${id}`)
+		.post(`https://zenime-server.herokuapp.com/api/users/${id}`)
 		.then(res => res.data)
 		.then(user => dispatch(addUser(user)))
 		.catch(err => console.log(err));
