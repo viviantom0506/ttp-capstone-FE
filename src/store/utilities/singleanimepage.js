@@ -20,7 +20,7 @@ export const addToFavoritesThunk = (anime, animeId, userId) => dispatch => {
 	const editedAnime = anime;
 	editedAnime.userId = userId;
 	axios
-		.post('http://localhost:3001/api/animes/', editedAnime)
+		.post('https://zenimee.herokuapp.com/api/animes/', editedAnime)
 		.then(res => {
 			return res.data;
 		})
