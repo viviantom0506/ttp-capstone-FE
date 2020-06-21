@@ -2,7 +2,7 @@ import React from "react";
 
 import { Image, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import "./SearchResults.css";
+import "./styling.css";
 
 const SearchResultsView = (props) => {
   return (

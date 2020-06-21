@@ -1,5 +1,6 @@
 import React from "react";
 import { Accordion, Card } from "react-bootstrap";
+import "./styling.css";
 const CategoriesView = (props) => {
   return (
     <div>
@@ -11,7 +12,7 @@ const CategoriesView = (props) => {
 
           <Accordion.Collapse eventKey="0">
             <Card.Body>
-              <div className="container">
+              <div className="container-lg">
                 <div className="d-flex flex-wrap justify-content-around">
                   <button
                     className="btn btn-dark m-1"
