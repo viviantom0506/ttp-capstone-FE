@@ -37,28 +37,34 @@ const NavBarView = (props) => {
   const randomAnime = Math.floor(Math.random() * (5000 - 1)) + 1;
 
   return (
-    <Navbar bg="dark" variant="dark">
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Link to="/">
         <Navbar.Brand>Zenime</Navbar.Brand>
       </Link>
-      <Nav className="mr-auto">
-        <Nav.Link href="/">Home</Nav.Link>
-        <Nav.Link href={`/users/${props.user.id}`}>Profile</Nav.Link>
-        <Nav.Link href={`/${randomAnime}`}>Random Anime</Nav.Link>
-      </Nav>
-      <Form inline onSubmit={props.handleSubmit}>
-        <FormControl
-          type="text"
-          name="keyword"
-          placeholder="Search"
-          className="mr-sm-2"
-          onChange={props.handleChange}
-        />
-        <Button type="submit" variant="outline-info">
-          Search
-        </Button>
-      </Form>
-      {navbarDisplay(props)}
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Collapse id="responsive-navbar-nav">
+        <Nav className="mr-auto">
+          <Nav.Link href="/">Home</Nav.Link>
+          <Nav.Link href={`/users/${props.user.id}`}>Profile</Nav.Link>
+          <Nav.Link href={`/${randomAnime}`}>Random Anime</Nav.Link>
+        </Nav>
+
+        <Nav>
+          <Form inline onSubmit={props.handleSubmit}>
+            <FormControl
+              type="text"
+              name="keyword"
+              placeholder="Search"
+              className="mr-sm-2"
+              onChange={props.handleChange}
+            />
+            <Button type="submit" variant="outline-info">
+              Search
+            </Button>
+          </Form>
+          {navbarDisplay(props)}
+        </Nav>
+      </Navbar.Collapse>
     </Navbar>
   );
 };
