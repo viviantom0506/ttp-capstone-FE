@@ -1,12 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import CategoriesView from "../views/categoriesView";
-import AnimeCategoriesPageView from "../views/AnimeCategoriesPageView";
 import "./animepage.css";
-import {
-  fetchAnimeByCategoriesThunk,
-  fetchSingleAnimeThunk,
-} from "../../thunks";
+import { fetchAnimeByCategoriesThunk } from "../../thunks";
 import { Redirect } from "react-router-dom";
 
 class CategoriesContainer extends Component {

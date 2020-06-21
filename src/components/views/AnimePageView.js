@@ -5,9 +5,9 @@ import { Image } from "react-bootstrap";
 
 const AnimePageView = (props) => {
   return (
-    <div className="d-flex flex-wrap justify-content-around">
+    <div className="d-flex flex-wrap justify-content-around m-3">
       {props.animeList.map((anime) => (
-        <div className="anime-cells">
+        <div className="anime-cells p-1">
           <Link to={`/${anime.id}`}>
             <Image
               className="anime-image"

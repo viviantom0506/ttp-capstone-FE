@@ -17,9 +17,6 @@ const HomePageView = (props) => {
   return (
     <div>
       {console.log("views ", typeof props.trendingAnime)}
-      <div>
-        <h1>Trending Anime</h1>
-      </div>
 
       <Carousel activeIndex={index} onSelect={handleSelect}>
         {props.trendingAnime.map((
@@ -32,25 +29,29 @@ const HomePageView = (props) => {
               alt={anime.attributes.titles.en_jp}
               className="trendingAnime"
             ></img>
-            <Carousel.Caption className=" text-light bg-dark">
+            <Carousel.Caption className="text-light">
               <Link
                 to={`/${anime.id}`}
                 style={{ textDecoration: "none", color: "white" }}
               >
-                <h5
-                  className="legend"
-                  onClick={() => props.handlePage(anime.id)}
-                >
-                  {anime.attributes.titles.en_jp}
-                </h5>
+                <div className="carText">
+                  <h4
+                    className="legend"
+                    onClick={() => props.handlePage(anime.id)}
+                  >
+                    {anime.attributes.titles.en_jp}
+                  </h4>
+                </div>
               </Link>
             </Carousel.Caption>
           </Carousel.Item>
         ))}
       </Carousel>
       <CategoriesContainer />
+
       <div className="popAnimeTag">
-        <h1>Highest Rated Anime</h1>
+        <img src="https://66.media.tumblr.com/efb3a6fc5a0e76829798bdb3d735ecf5/tumblr_mrnj0g6qza1rfjowdo1_500.gif" />
+        <h1>Popluar Anime</h1>
       </div>
       <AnimePageContainer />
     </div>

@@ -5,9 +5,9 @@ const CategoriesView = (props) => {
   return (
     <div>
       <Accordion defaultActiveKey="1">
-        <Card>
+        <Card className="catAcc">
           <Accordion.Toggle as={Card.Header} eventKey="0">
-            <h4>Click me for categories!</h4>
+            <h4 className="catHead">Click me for categories!</h4>
           </Accordion.Toggle>
 
           <Accordion.Collapse eventKey="0">

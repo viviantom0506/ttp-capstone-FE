@@ -6,3 +6,21 @@
 .page-item {
   padding: 10px;
 }
+
+.catPageHeader,
+.searchHead {
+  display: flex;
+  margin-top: 4%;
+  align-items: center;
+  justify-content: center;
+}
+.catPageHeader img {
+  width: 50px;
+  height: auto;
+}
+
+.searchHead img {
+  width: 100px;
+  height: auto;
+  margin-bottom: 5px;
+}

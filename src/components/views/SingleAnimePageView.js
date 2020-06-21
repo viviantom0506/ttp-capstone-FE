@@ -19,7 +19,7 @@ const SingleAnimePageView = (props) => {
     <>
       {props.animeData.attributes.coverImage ? (
         <img
-          className="img-fluid"
+          className="img-fluid header-img"
           src={props.animeData.attributes.coverImage.large}
         />
       ) : (
@@ -53,11 +53,14 @@ const SingleAnimePageView = (props) => {
 				</Media.Body>
 	  </Media> */}
       <div className="card-parent">
-        <div className="card-single card" style={{ width: 1000 }}>
+        <div
+          className="d-flex flex-row align-items-center card-single card bg-dark text-white"
+          style={{ width: 1500 }}
+        >
           <img
             // className="singleImage"
-            className="card-img-top"
-            src={props.animeData.attributes.posterImage.small}
+            className="card-img-top rounded"
+            src={props.animeData.attributes.posterImage.medium}
             style={{ width: 300 }}
           ></img>
           <div className="card-body">
@@ -69,7 +72,7 @@ const SingleAnimePageView = (props) => {
             <p className="card-text">{props.animeData.attributes.synopsis}</p>
             <Button onClick={props.handleClick}>Add to favorites</Button>
             {props.animeData.attributes.youtubeVideoId ? (
-              <Button variant="dark" onClick={handleShow}>
+              <Button variant="danger" onClick={handleShow}>
                 Watch Trailer
               </Button>
             ) : null}
