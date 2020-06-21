@@ -18,11 +18,7 @@ const AnimeCategoriesPageView = props => {
 								fluid
 							/>
 						</Link>
-						<p>
-							{anime.attributes.titles.en
-								? anime.attributes.titles.en
-								: anime.attributes.titles.jp}
-						</p>
+						<p>{anime.attributes.slug}</p>
 					</div>
 				))}
 			</div>
