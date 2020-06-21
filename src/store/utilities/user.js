@@ -43,7 +43,7 @@ export const me = userId => async dispatch => {
 		// const res = await axios.get(`http://localhost:3001/users/${userId}`, {
 		//   withCredentials: true
 		// });
-		const res = await axios.get(`http://zenime-server.herokuapp.com/auth/me`, {
+		const res = await axios.get(`https://zenime-server.herokuapp.com/auth/me`, {
 			withCredentials: true,
 		});
 
