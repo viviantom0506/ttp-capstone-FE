@@ -15,7 +15,6 @@ export class SearchResultsContainer extends Component {
 }
 
 const mapState = state => {
-	console.log('Hellofrom SRC', state.search.data);
 	return {
 		results: state.search.data,
 	};
