@@ -5,43 +5,40 @@ import { fetchTrendingThunk, fetchSingleAnimeThunk } from '../../thunks';
 import PropTypes from 'prop-types';
 
 class HomePageContainer extends Component {
-  componentDidMount() {
-    this.props.fetchTrending();
-  }
+	componentDidMount() {
+		this.props.fetchTrending();
+	}
 
-  handlePage = id => {
-    this.props.fetchSingleAnime(id);
-    // console.log(id);
-  };
+	handlePage = id => {
+		this.props.fetchSingleAnime(id);
+	};
 
-  render() {
-    console.log('from HP container ', this.props.trendingAnime);
-    return this.props.trendingAnime ? (
-      <HomePageView
-        trendingAnime={this.props.trendingAnime}
-        handlePage={this.handlePage}
-      />
-    ) : null;
-  }
+	render() {
+		return this.props.trendingAnime ? (
+			<HomePageView
+				trendingAnime={this.props.trendingAnime}
+				handlePage={this.handlePage}
+			/>
+		) : null;
+	}
 }
 
 const mapState = state => {
-  console.log(state);
-  return {
-    trendingAnime: state.homepage.data
-  };
+	return {
+		trendingAnime: state.homepage.data,
+	};
 };
 
 const mapDispatch = dispatch => {
-  return {
-    fetchTrending: () => dispatch(fetchTrendingThunk()),
-    fetchSingleAnime: id => dispatch(fetchSingleAnimeThunk(id))
-  };
+	return {
+		fetchTrending: () => dispatch(fetchTrendingThunk()),
+		fetchSingleAnime: id => dispatch(fetchSingleAnimeThunk(id)),
+	};
 };
 
 HomePageContainer.propTypes = {
-  trendingAnime: PropTypes.array.isRequired,
-  fetchTrending: PropTypes.func.isRequired
+	trendingAnime: PropTypes.array.isRequired,
+	fetchTrending: PropTypes.func.isRequired,
 };
 
 export default connect(mapState, mapDispatch)(HomePageContainer);

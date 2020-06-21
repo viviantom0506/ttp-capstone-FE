@@ -7,7 +7,7 @@ import * as reducers from '../reducers';
 const rootReducer = combineReducers(reducers);
 const logger = createLogger({ collapsed: true });
 const middleware = composeWithDevTools(
-  applyMiddleware(thunkMiddleware, logger)
+	applyMiddleware(thunkMiddleware, logger),
 );
 const store = createStore(rootReducer, middleware);
 
