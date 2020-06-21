@@ -26,7 +26,7 @@ export class SingleAnimePageContainer extends Component {
 		};
 		this.props.addToFavorites(
 			favoriteAnime,
-			this.props.anime.id,
+			// this.props.anime.id,
 			this.props.userId,
 		);
 		alert('Added to favorites');
@@ -54,8 +54,8 @@ const mapState = state => {
 const mapDispatch = dispatch => {
 	return {
 		fetchSingleAnime: id => dispatch(fetchSingleAnimeThunk(id)),
-		addToFavorites: (anime, animeId, userId) =>
-			dispatch(addToFavoritesThunk(anime, animeId, userId)),
+		addToFavorites: (anime, userId) =>
+			dispatch(addToFavoritesThunk(anime, userId)),
 		getUserAndAnimes: userId => dispatch(getUserAndAnimesThunk(userId)),
 	};
 };

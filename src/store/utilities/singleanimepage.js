@@ -16,7 +16,7 @@ const addToFavorites = animeId => {
 	};
 };
 
-export const addToFavoritesThunk = (anime, animeId, userId) => dispatch => {
+export const addToFavoritesThunk = (anime, userId) => dispatch => {
 	const editedAnime = anime;
 	editedAnime.userId = userId;
 	axios
