@@ -31,7 +31,7 @@ const getUserAndAnimes = user => {
 
 export const getUserAndAnimesThunk = userId => async dispatch => {
 	await axios
-		.get(`http://localhost:3001/api/users/${userId}`)
+		.get(`http://zenime-server.herokuapp.com/api/users/${userId}`)
 		//.then((res) => console.log(res))
 		.then(res => res.data)
 		.then(userAndAnimes => dispatch(getUserAndAnimes(userAndAnimes)))
@@ -43,7 +43,7 @@ export const me = userId => async dispatch => {
 		// const res = await axios.get(`http://localhost:3001/users/${userId}`, {
 		//   withCredentials: true
 		// });
-		const res = await axios.get(`http://localhost:3001/auth/me`, {
+		const res = await axios.get(`http://zenime-server.herokuapp.com/auth/me`, {
 			withCredentials: true,
 		});
 
@@ -59,7 +59,7 @@ export const auth = (email, password, method) => async dispatch => {
 	// console.log('user.js file, this is cookies:', cookies);
 	try {
 		res = await axios.post(
-			`http://localhost:3001/auth/${method}`,
+			`http://zenime-server.herokuapp.com/auth/${method}`,
 			{ email, password },
 			{ withCredentials: true },
 		);
@@ -76,7 +76,7 @@ export const auth = (email, password, method) => async dispatch => {
 
 export const logout = () => async dispatch => {
 	try {
-		await axios.delete('http://localhost:3001/auth/logout', {
+		await axios.delete('http://zenime-server.herokuapp.com/auth/logout', {
 			withCredentials: true,
 		});
 		dispatch(removeUser());
