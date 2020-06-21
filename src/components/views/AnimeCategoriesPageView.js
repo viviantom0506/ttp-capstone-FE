@@ -1,7 +1,7 @@
 import React from "react";
 import "./styling.css";
 import { Link } from "react-router-dom";
-import { Container, Image } from "react-bootstrap";
+import { Image } from "react-bootstrap";
 
 const AnimeCategoriesPageView = (props) => {
   return (

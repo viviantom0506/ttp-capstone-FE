@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { Button, Modal, Container, Media, Image } from "react-bootstrap";
+import { Button, Modal } from "react-bootstrap";
 import "./styling.css";
-import { tsPropertySignature } from "@babel/types";
 
 const SingleAnimePageView = (props) => {
   console.log("singAPV --", props.animeData.attributes.slug);
@@ -21,12 +20,14 @@ const SingleAnimePageView = (props) => {
         <img
           className="img-fluid header-img"
           src={props.animeData.attributes.coverImage.large}
+          alt={props.animeData.attributes.slug}
         />
       ) : (
         <img
           className="img-fluid"
           src="https://i.imgur.com/49OiK1s.jpg"
           style={{ width: "100%", marginTop: -24, height: "auto" }}
+          alt={props.animeData.attributes.slug}
         />
       )}
       {/* 
@@ -62,6 +63,7 @@ const SingleAnimePageView = (props) => {
             className="card-img-top rounded"
             src={props.animeData.attributes.posterImage.medium}
             style={{ width: 300 }}
+            alt={props.animeData.attributes.slug}
           ></img>
           <div className="card-body">
             {" "}
@@ -88,6 +90,7 @@ const SingleAnimePageView = (props) => {
                   frameborder="0"
                   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                   allowfullscreen
+                  title="video"
                 ></iframe>
               </Modal.Body>
               <Modal.Footer>

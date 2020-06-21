@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Image, Container } from "react-bootstrap";
+import { Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./styling.css";
 
@@ -8,7 +8,10 @@ const SearchResultsView = (props) => {
   return (
     <div>
       <div className="searchHead">
-        <img src="https://rs1231.pbsrc.com/albums/ee503/adrian66645/Combate%20Mortal%20Total%20Album/naruto_standing1.gif~c200" />
+        <img
+          src="https://rs1231.pbsrc.com/albums/ee503/adrian66645/Combate%20Mortal%20Total%20Album/naruto_standing1.gif~c200"
+          alt="naruto gif"
+        />
         <h1>Top Results</h1>
       </div>
 

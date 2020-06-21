@@ -18,7 +18,7 @@ export class SearchResultsContainer extends Component {
 
   handlePrev = () => {
     const newPage = this.state.page - 18;
-    return this.state.page == 0
+    return this.state.page === 0
       ? this.state
       : (this.setState({ page: newPage }),
         this.props.searchAnime(this.props.location.state.keyword, newPage));

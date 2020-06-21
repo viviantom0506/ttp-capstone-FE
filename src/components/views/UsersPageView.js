@@ -1,6 +1,5 @@
 import React from "react";
-import { Route } from "react-router-dom";
-import { Card, Accordion, Button } from "react-bootstrap";
+import { Card, Accordion } from "react-bootstrap";
 import "./styling.css";
 
 function UsersPageView(props) {
@@ -13,6 +12,7 @@ function UsersPageView(props) {
             src="https://100filmsinayear.files.wordpress.com/2011/08/my-neighbour-totoro-banner.jpg"
             className="img-fluid"
             style={{ width: 1500, height: "auto" }}
+            alt="profile banner totoro"
           />
           <div className="email">
             <h1>{props.user.email}'s profile</h1>

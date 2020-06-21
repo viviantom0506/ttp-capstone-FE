@@ -1,5 +1,5 @@
 import React from "react";
-import { Router, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
 import "./styling.css";
 const navbarDisplay = (props) => {
