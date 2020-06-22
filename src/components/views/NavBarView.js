@@ -13,19 +13,6 @@ const navbarDisplay = props => {
 			</>
 		);
 	}
-	// if (props.user != {} || props.user != undefined) {
-	// 	return (
-	// 		<Nav.Link href="/" onClick={props.handleLogout}>
-	// 			Log Out
-	// 		</Nav.Link>
-	// 	);
-	// } else {
-	// 	return (
-	// 		<>
-	//
-	// 		</>
-	// 	);
-	// }
 };
 
 //const randomMonth = months[Math.floor(Math.random() * months.length)]; RANDOM ELEMENT EXAMPLE
