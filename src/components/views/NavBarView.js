@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
+import { Navbar, Nav, Form, FormControl, Button, Image } from 'react-bootstrap';
 import './styling.css';
 const navbarDisplay = props => {
 	if (props.user.id) {
@@ -34,6 +34,12 @@ const NavBarView = props => {
 
 	return (
 		<Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+			<Image
+				src="https://31.media.tumblr.com/tumblr_lro98vT3A61ql4hkyo1_250.gif"
+				alt="sharingan"
+				fluid
+				className="navImg"
+			/>
 			<Link to="/">
 				<Navbar.Brand>Zenime</Navbar.Brand>
 			</Link>
