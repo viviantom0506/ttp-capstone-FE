@@ -11,7 +11,20 @@ const SingleAnimePageView = props => {
 		? props.animeData.attributes.titles.en
 		: props.animeData.attributes.titles.en_jp;
 	const ytLink = `https://www.youtube.com/embed/${props.animeData.attributes.youtubeVideoId}`;
-
+	const thumbs =
+		props.animeData.attributes.averageRating > 60 ? (
+			<img
+				src="https://www.clker.com/cliparts/P/S/9/I/l/S/234-ed-s-sd-md.png"
+				alt="thumbs up"
+				style={{ width: 80 }}
+			/>
+		) : (
+			<img
+				src="https://www.pngkit.com/png/full/14-147043_thumb-signal-red-clip-art-thumbs-down-red.png"
+				alt="thumbs down"
+				style={{ width: 80 }}
+			/>
+		);
 	// const anime = props.animeData;
 	return props.animeData ? (
 		<>
@@ -66,6 +79,11 @@ const SingleAnimePageView = props => {
 						<h1 className="card-title">{title}</h1>
 						<p>
 							<b>Episodes:</b> {props.animeData.attributes.episodeCount}
+						</p>
+						<p>
+							Average rating:<span>&nbsp;</span>
+							{props.animeData.attributes.averageRating}
+							{thumbs}{' '}
 						</p>
 						<p className="card-text">{props.animeData.attributes.synopsis}</p>
 						<Button onClick={props.handleClick}>Add to favorites</Button>
